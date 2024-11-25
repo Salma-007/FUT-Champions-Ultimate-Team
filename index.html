@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
-<body>
+<body >
+    <section class="stade-content">
+        <div class="stade">
+            <div class="LW"></div>
+            <div class="ST"></div>
+            <div class="RW"></div>
+
+        </div>
+        
+    </section>
+    <section class="form-player">
+        <div class="form-container">
+            <h2>FIFA Player Information</h2>
+            <form  method="post">
+                <input type="text" placeholder="enter player name">
+                <input type="text" placeholder="enter player nationality">
+                <input type="text" placeholder="enter ligue">
+                <input type="text" placeholder="enter Overall Rating">
+                <label>Position:</label>
+                <select name="" id="">
+                    <option value="striker">ST</option>
+                    <option value="leftWing">LW</option>
+                    <option value="rightWing">RW</option>
+                    <option value="goalkeeper">GL</option>
+                    <option value="middle">CM</option>
+                    <option value="back">CB</option>
+                    <option value="leftBack">LB</option>
+                    <option value="rightBack">RB</option>
+
+                </select>
     
+                <button type="button">Add Player</button>
+            </form>
+        </div>
+    </section>
 </body>
 </html>

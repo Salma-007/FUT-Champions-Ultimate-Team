@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(./images/stadium_background.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.stade-content{
+    width: 80%;
+
+}
+
+.form-player{
+    width: 20%;
+}
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.stade{
+    width: 900px;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    height: 800px;
+    background-color: aqua;
+    margin: auto ;
+    margin-top: 50px;
+    position: relative;
+    opacity: 0.5;
+}
+
+.LW {
+    grid-row: 3/7;
+    grid-column: 2/5;
+    background-color: #2658be;
+}
+.ST{
+    grid-row: 2/6;
+    grid-column: 7/10 ;
+    background-color: blue;
+}
+.RW{
+    grid-column: 12/15;
+    grid-row: 3/7;
+    background-color: brown;
+}
