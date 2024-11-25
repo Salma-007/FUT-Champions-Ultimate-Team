@@ -21,18 +21,63 @@ body{
     /* background-color: aqua; */
     
     width: 900px;
-    height: 600px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    /* gap: 10px; */
     margin: auto;
     margin-top: 20px;
     margin-bottom: 10px;
+    
 }
-.card{
-
+.card {
     width: 200px;
-    background-color: #249acd;
+    height: 240px;
+    /* background-color: #249acd; */
+    background-image: url(./images/badge_gold.webp);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    border-radius: 15px;    
+    text-align: center;    
+    
+     
+}
+.player-name{
+    font-weight: bold;
+    font-size: 15px;
+}
+.pac-rating{
+    font-weight: bold;
+    font-size: 12px;
+}
+.rating-position{
+    position: absolute;
+    left: 35px
+}
+.card-content{
+    margin-top: 40px;
+    
+}
+.card img{
+    width: 120px;
+}
+.player-rating{
+    font-weight: bold;
+}
+.player-score{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-size: 10px;
+}
+.flags{
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+.flags img{
+    width: 20px;
+    height: 13px;
 }
 
 .form-player{
@@ -92,68 +137,96 @@ button:hover {
 .stade{
     width: 900px;
     display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    grid-template-rows: repeat(27, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(37, 1fr);
     height: 800px;
     background-color: aqua;
     margin: auto ;
     margin-top: 50px;
     position: relative;
-    opacity: 0.5;
+    /* opacity: 0.5; */
+    
+
 }
 
 .LW {
-    grid-row: 3/8;
+    grid-row: 2/9;
     grid-column: 2/5;
-    background-color: #2658be;
+    /* background-color: #2658be;  */
+    display: flex;
+    justify-content: center;
 }
+
+
+
 .ST{
-    grid-row: 2/7;
+    grid-row: 1/7;
     grid-column: 7/10 ;
-    background-color: blue;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
 }
+
 .RW{
     grid-column: 12/15;
-    grid-row: 3/8;
-    background-color: brown;
+    grid-row: 2/8;
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
 }
 .CM1{
-    background-color: #45a049;
+    /* background-color: #45a049; */
     grid-column: 3/6;
     grid-row: 9/14;
+    display: flex;
+    justify-content: center;
 }
 .CM2{
-    background-color: #45a049;
+    /* background-color: #45a049; */
     grid-column: 7/10;
     grid-row: 10/15;
+    display: flex;
+    justify-content: center;
 }
 .CM3{
-    background-color: #45a049;
+    /* background-color: #45a049; */
     grid-column: 11/14;
     grid-row: 9/14;
+    display: flex;
+    justify-content: center;
 }
 .GL{
     background-color: #2658be;
     grid-column: 7/10;
-    grid-row: 23/28;
+    grid-row: 27/33;
+    display: flex;
+    justify-content: center;
 }
 .LB{
     background-color: #2658be;
     grid-column: 1/4;
-    grid-row: 16/21;
+    grid-row: 19/25;
+    display: flex;
+    justify-content: center;
 }
 .CB1{
     background-color: #2658be;
     grid-column: 5/8;
     grid-row: 17/22;
+    display: flex;
+    justify-content: center;
 }
 .CB2{
     background-color: #2658be;
     grid-column: 9/12;
     grid-row: 17/22;
+    display: flex;
+    justify-content: center;
 }
 .RB{
     background-color: #2658be;
     grid-column: 13/16;
-    grid-row: 16/21;
+    grid-row: 19/25;
+    display: flex;
+    justify-content: center;
 }
