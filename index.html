@@ -49,6 +49,7 @@
                     <div class="player-informations-GL">
                     <div class="player-name-GL">Mbappe</div>
                     <div class="player-score-GL">
+                        <div class="flex-player">
                         <div class="pace-div">
                             <div class="pac">PAC</div>
                             <div class="pac-rating">98</div>
@@ -72,8 +73,13 @@
                         <div class="pace-div">
                             <div class="pac">PHY</div>
                             <div class="pac-rating">98</div>
+                        </div></div>
+                        <div class="flags-player">
+                            <img src="./assets/images/Flag-France.webp" alt="">
+                            <img src="./assets/images/real-madrid.png" alt="">
                         </div>
                     </div>
+                    
                     
                 </div>
                 </div>
@@ -136,20 +142,20 @@
             <div class="card"></div>
         </div>
     </section>
-    <section class="form-player">
+    <section class="form-player ">
         <div class="form-container">
             <h2>FIFA Player Informations</h2>
             <form  method="post">
                 <label>Nom:</label>
-                <input type="text" placeholder="enter player name">
+                <input type="text" class="nom-player" placeholder="enter player name">
                 <label>Nationality:</label>
-                <input type="text" placeholder="enter player nationality">
+                <input type="text" class="nationality-player" placeholder="enter player nationality">
                 <label>Ligue:</label>
-                <input type="text" placeholder="enter ligue">
+                <input type="text" class="ligue-player" placeholder="enter ligue">
                 <label>Rating:</label>
-                <input type="text" placeholder="enter Overall Rating">
+                <input type="text" class="rating-player" placeholder="enter Overall Rating">
                 <label>Position:</label>
-                <select name="" id="">
+                <select name="" class="option-position">
                     <option value="striker">ST</option>
                     <option value="leftWing">LW</option>
                     <option value="rightWing">RW</option>
@@ -161,38 +167,65 @@
 
                 </select>
                 <section class="normal-player">
-                    <label>PAC:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>SHO:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>PAS:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>DRI:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>DEF:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>PHY:</label>
-                    <input type="text" placeholder="enter rating">
+                    <div class="player-ratings">
+                        <label>PAC:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>SHO:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>PAS:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>DRI:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>DEF:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>PHY:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+
                 </section>
                 <section class="goalkeeper-player">
-                    <label>DIV:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>HAN:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>KIC:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>REF:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>SPD:</label>
-                    <input type="text" placeholder="enter rating">
-                    <label>POS:</label>
-                    <input type="text" placeholder="enter rating">
+                    <div class="player-ratings">
+                        <label>DIV:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>HAN:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>KIC:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>REF:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>SPD:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+                    <div class="player-ratings">
+                        <label>POS:</label>
+                        <input type="text" placeholder="enter rating">
+                    </div>
+
                 </section>
-                <button type="button">Add Player</button>
+                <button type="button" class="addPlayer">Add Player</button>
             </form>
         </div>
     </section>
 
+    <script src="./js/script.js"></script>
 
 </body>
 </html>

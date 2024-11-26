@@ -75,6 +75,7 @@ body{
     justify-content: center;
     gap: 4px;
 }
+
 .flags img{
     width: 20px;
     height: 13px;
@@ -107,7 +108,13 @@ form {
     gap: 10px;
 }
 .goalkeeper-player{
-    display: none;
+    display: none;  
+   
+}
+.player-ratings{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 form input{
@@ -150,7 +157,10 @@ button:hover {
     grid-template-columns: repeat(18, 1fr);
     grid-template-rows: repeat(37, 1fr);
     height: 900px;
-    background-color: #3d3333;
+    background-image: url(./images/black-stade.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     margin: auto ;
     margin-top: 50px;
     position: relative;
@@ -169,7 +179,7 @@ button:hover {
     grid-row: 6/15;
     grid-column: 2/6;
     /* background-color: #2658be;  */
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -184,7 +194,7 @@ button:hover {
     grid-row: 5/14;
     grid-column: 8/12 ;
     /* background-color: blue; */
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -196,8 +206,8 @@ button:hover {
 .RW{
     grid-column: 14/18;
     grid-row: 6/15;
-    background-color: brown;
-    background-image: url(./images/badge_gold.webp);
+    /* background-color: brown; */
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -209,7 +219,7 @@ button:hover {
     /* background-color: #45a049; */
     grid-column: 4/8;
     grid-row: 15/23;
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -222,7 +232,7 @@ button:hover {
     /* background-color: #45a049; */
     grid-column: 8/12;
     grid-row: 15/23;
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -234,7 +244,7 @@ button:hover {
     /* background-color: #45a049; */
     grid-column: 12/16;
     grid-row: 15/23;
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -246,7 +256,8 @@ button:hover {
     /* background-color: #2658be; */
     grid-column: 8/12;
     grid-row: 30/38;
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
+    color: white;
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -259,7 +270,7 @@ button:hover {
     /* background-color: #2658be; */
     grid-column: 1/5;
     grid-row: 23/31;
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -272,7 +283,7 @@ button:hover {
     /* background-color: #2658be; */
     grid-column: 6/10;
     grid-row: 23/31;
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -285,7 +296,7 @@ button:hover {
     /* background-color: #2658be; */
     grid-column: 11/15;
     grid-row: 23/31;
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -297,7 +308,7 @@ button:hover {
     /* background-color: #2658be; */
     grid-column: 15/19;
     grid-row: 23/31;;
-    background-image: url(./images/badge_gold.webp);
+    background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
     background-size: contain;
@@ -325,40 +336,45 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
+   
 }
 .player-score-GL{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    
     font-size: 9px;
+    
+}
+.flex-player{
+    display: flex;
+    gap: 5px;
+
 }
 .player-name-GL{
     margin-top: 4px;
     font-weight: bold;
     font-size: 13px;
+
+}
+.player-flex{
+    display: flex;
+    flex-direction: column;
+}
+.flags-player{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 0;
+}
+.flags-player img{
+    width: 12px;
+    height: 10px;
+    margin-top: 2px;
 }
 
 
-/* @media screen and (max-width: 1125px) {
-    body{
-        
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-    .form-player{
-        width: 500px;
-        height: 100%;
-        margin-bottom: 600px;
-    }
-    .stade-content{
-        margin: 0;
-    }
-    .stade{
-        margin: 0;
-    }
-    
-} */
 @media screen and (max-width: 1026px) and (min-width: 481px){
     body{
         display: flex;
@@ -367,16 +383,15 @@ button:hover {
     }
     .stade{
         width: 700px;
-        margin: 30px auto;
+        /* margin: 30px auto; */
 
     }
     .form-player{
         margin: 20px auto;
         width: 500px;
+        margin-bottom: 400px;
     }
-    .stade-content{
-        margin: 20px auto;
-    }
+    
     .backup-players{
         width: 600px;
     }
@@ -392,12 +407,16 @@ button:hover {
         justify-content: center;
     }
     .form-player{
-        padding-left: 50px;
+        margin-left: 50px;
         width: 400px;
+
     }
     .stade{
         margin: 30px auto;
-
+        margin-left: 10px;
+    }
+    .stade-content{
+        margin-left: 50px;
     }
 }
 @media screen and (max-width: 481px){
