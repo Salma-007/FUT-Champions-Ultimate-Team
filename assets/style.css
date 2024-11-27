@@ -42,6 +42,13 @@ body{
     
      
 }
+.rating-flex-deux{
+    display: flex;
+    gap: 5px;
+}
+.input-rating{
+    width: 140px;
+}
 .player-name{
     font-weight: bold;
     font-size: 15px;
@@ -95,6 +102,7 @@ body{
     padding: 20px;
     background-color: #191919;
     border-radius: 8px;
+    
     
 }
 form {

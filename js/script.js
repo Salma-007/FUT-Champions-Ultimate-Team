@@ -149,7 +149,9 @@ let rightWing = document.querySelector('.RW')
 // affichage des players
 let setrouve = false;
 function displayPlayers(){
-
+    changements.forEach(x=>{
+        x.innerHTML=''
+    })
     let newCard = document.createElement('div')
     newCard.classList.add('card-content')
     let newCardPlayerStade = document.createElement('div')
