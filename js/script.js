@@ -44,6 +44,14 @@ let driPlayer = document.querySelector('.dri-player')
 let defPlayer = document.querySelector('.def-player')
 let phyPlayer = document.querySelector('.phy-player')
 
+// array des div de changement
+let changements = []
+let changement = document.querySelectorAll('.changement')
+changements = Array.from(changement)
+changements.reverse()
+
+
+
 
 addPlayer.addEventListener('click',function(){
 
@@ -128,100 +136,103 @@ function addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flag
 
 // display players
 
-let divDekka2 = document.querySelector('.card-player2')
-let divDekka3 = document.querySelector('.card-player3')
+
 function displayPlayers(){
 
-    divDekka2.innerHTML= ''
-    divDekka3.innerHTML= ''
+
     let newCard = document.createElement('div')
     newCard.classList.add('card-content')
     arrPlayers.forEach(player=>{
-        if( player.positionPlayerValue !== 'GK' ){
-        newCard.innerHTML=`
-                <div class="rating-position">
-                        <div class="player-rating">${player.ratingPlayerValue}</div>
-                        <div class="player-position">${player.positionPlayerValue}</div>
-                    </div>
-                <img src="${player.photoPlayerValue}" alt="">
-                <div class="player-informations">
-                    <div class="player-name">${player.nomPlayerValue}</div>
-                    <div class="player-score">
-                        <div class="pace-div">
-                            <div class="pac">PAC</div>
-                            <div class="pac-rating">${player.pacPlayerValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">SHO</div>
-                            <div class="pac-rating">${player.shoPlayerValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">PAS</div>
-                            <div class="pac-rating">${player.pasPlayerValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">DRI</div>
-                            <div class="pac-rating">${player.driPlayerValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">DEF</div>
-                            <div class="pac-rating">${player.defPlayerValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">PHY</div>
-                            <div class="pac-rating">${player.phyPlayerValue}</div>
-                        </div>
-                    </div>
-                    <div class="flags">
-                        <img src="${player.flagPlayerValue}" alt="">
-                        <img src="${player.logoPlayerValue}" alt="">
-                    </div>
-        `
-        divDekka2.appendChild(newCard)
-    }
-    else{
-        newCard.innerHTML=`
-                <div class="rating-position">
-                        <div class="player-rating">${player.ratingPlayerValue}</div>
-                        <div class="player-position">${player.positionPlayerValue}</div>
-                    </div>
-                <img src="${player.photoPlayerValue}" alt="">
-                <div class="player-informations">
-                    <div class="player-name">${player.nomPlayerValue}</div>
-                    <div class="player-score">
-                        <div class="pace-div">
-                            <div class="pac">DIV</div>
-                            <div class="pac-rating">${player.divGoalkeeperValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">HAN</div>
-                            <div class="pac-rating">${player.hanGoalkeeperValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">KIC</div>
-                            <div class="pac-rating">${player.kicGoalkeeperValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">REF</div>
-                            <div class="pac-rating">${player.refGoalkeeperValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">SPD</div>
-                            <div class="pac-rating">${player.spdGoalkeeperValue}</div>
-                        </div>
-                        <div class="pace-div">
-                            <div class="pac">POS</div>
-                            <div class="pac-rating">${player.posGoalkeeperValue}</div>
-                        </div>
-                    </div>
-                    <div class="flags">
-                        <img src="${player.flagPlayerValue}" alt="">
-                        <img src="${player.logoPlayerValue}" alt="">
-                    </div>
-        `
-        divDekka3.appendChild(newCard)
-
-    }
+        changements.forEach(changement0 => {
+            if(changement0.innerHTML==''){
+                if( player.positionPlayerValue !== 'GK' ){
+                    newCard.innerHTML=`
+                            <div class="rating-position">
+                                    <div class="player-rating">${player.ratingPlayerValue}</div>
+                                    <div class="player-position">${player.positionPlayerValue}</div>
+                                </div>
+                            <img src="${player.photoPlayerValue}" alt="">
+                            <div class="player-informations">
+                                <div class="player-name">${player.nomPlayerValue}</div>
+                                <div class="player-score">
+                                    <div class="pace-div">
+                                        <div class="pac">PAC</div>
+                                        <div class="pac-rating">${player.pacPlayerValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">SHO</div>
+                                        <div class="pac-rating">${player.shoPlayerValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">PAS</div>
+                                        <div class="pac-rating">${player.pasPlayerValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">DRI</div>
+                                        <div class="pac-rating">${player.driPlayerValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">DEF</div>
+                                        <div class="pac-rating">${player.defPlayerValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">PHY</div>
+                                        <div class="pac-rating">${player.phyPlayerValue}</div>
+                                    </div>
+                                </div>
+                                <div class="flags">
+                                    <img src="${player.flagPlayerValue}" alt="">
+                                    <img src="${player.logoPlayerValue}" alt="">
+                                </div>
+                    `
+                    changement0.appendChild(newCard)
+                }
+                else{
+                    newCard.innerHTML=`
+                            <div class="rating-position">
+                                    <div class="player-rating">${player.ratingPlayerValue}</div>
+                                    <div class="player-position">${player.positionPlayerValue}</div>
+                                </div>
+                            <img src="${player.photoPlayerValue}" alt="">
+                            <div class="player-informations">
+                                <div class="player-name">${player.nomPlayerValue}</div>
+                                <div class="player-score">
+                                    <div class="pace-div">
+                                        <div class="pac">DIV</div>
+                                        <div class="pac-rating">${player.divGoalkeeperValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">HAN</div>
+                                        <div class="pac-rating">${player.hanGoalkeeperValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">KIC</div>
+                                        <div class="pac-rating">${player.kicGoalkeeperValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">REF</div>
+                                        <div class="pac-rating">${player.refGoalkeeperValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">SPD</div>
+                                        <div class="pac-rating">${player.spdGoalkeeperValue}</div>
+                                    </div>
+                                    <div class="pace-div">
+                                        <div class="pac">POS</div>
+                                        <div class="pac-rating">${player.posGoalkeeperValue}</div>
+                                    </div>
+                                </div>
+                                <div class="flags">
+                                    <img src="${player.flagPlayerValue}" alt="">
+                                    <img src="${player.logoPlayerValue}" alt="">
+                                </div>
+                    `
+                    changement0.appendChild(newCard)
+            
+                }
+            }
+        })
+        
     })
 
 }
