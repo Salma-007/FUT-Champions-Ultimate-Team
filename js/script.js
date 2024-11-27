@@ -8,7 +8,7 @@ let arrPlayers = [];
 positionSelect.addEventListener('change',function(){
     const selectedPosition = positionSelect.value;
 
-   if (selectedPosition === 'goalkeeper') {
+   if (selectedPosition === 'GK') {
         goalkeeperPlayerSection.style.display = 'block';
         normalPlayerSection.style.display = 'none';
     } else {
@@ -21,6 +21,8 @@ positionSelect.addEventListener('change',function(){
 let addPlayer = document.querySelector('.addPlayer')
 let nomPlayer = document.querySelector('.nom-player')
 let photoPlayer = document.querySelector('.photo-player')
+let logoPlayer = document.querySelector('.logo-player')
+let flagPlayer = document.querySelector('.flag-player')
 let nationalityPlayer = document.querySelector('.nationality-player')
 let liguePlayer = document.querySelector('.ligue-player')
 let ratingPlayer = document.querySelector('.rating-player')
@@ -51,8 +53,10 @@ addPlayer.addEventListener('click',function(){
     let liguePlayerValue = liguePlayer.value;
     let ratingPlayerValue = ratingPlayer.value;
     let positionPlayerValue = positionPlayer.value;
+    let logoPlayerValue = logoPlayer.value
+    let flagPlayerValue = flagPlayer.value
 
-    if(positionPlayerValue == 'goalkeeper'){
+    if(positionPlayerValue == 'GK'){
         let divGoalkeeperValue = divGoalkeeper.value;
         let hanGoalkeeperValue = hanGoalkeeper.value;
         let kicGoalkeeperValue = kicGoalkeeper.value;
@@ -60,7 +64,8 @@ addPlayer.addEventListener('click',function(){
         let spdGoalkeeperValue = spdGoalkeeper.value;
         let posGoalkeeperValue = posGoalkeeper.value;
 
-        addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,divGoalkeeperValue,hanGoalkeeperValue,kicGoalkeeperValue,refGoalkeeperValue,spdGoalkeeperValue,posGoalkeeperValue);
+        addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,divGoalkeeperValue,hanGoalkeeperValue,kicGoalkeeperValue,refGoalkeeperValue,spdGoalkeeperValue,posGoalkeeperValue);
+        document.getElementById("player-formulaire").reset();
     }
     else{
         let pacPlayerValue = pacPlayer.value;
@@ -70,16 +75,18 @@ addPlayer.addEventListener('click',function(){
         let defPlayerValue = defPlayer.value;
         let phyPlayerValue = phyPlayer.value;
 
-        addPlayerFunction(nomPlayerValue, photoPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,pacPlayerValue,shoPlayerValue,pasPlayerValue,driPlayerValue,defPlayerValue,phyPlayerValue);
-
+        addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,pacPlayerValue,shoPlayerValue,pasPlayerValue,driPlayerValue,defPlayerValue,phyPlayerValue);
+        document.getElementById("player-formulaire").reset();
     }
     
 })
 
-function addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,divGoalkeeperValue,hanGoalkeeperValue,kicGoalkeeperValue,refGoalkeeperValue,spdGoalkeeperValue,posGoalkeeperValue){
+function addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,divGoalkeeperValue,hanGoalkeeperValue,kicGoalkeeperValue,refGoalkeeperValue,spdGoalkeeperValue,posGoalkeeperValue){
     let player = {
         nomPlayerValue : nomPlayerValue,
         photoPlayerValue : photoPlayerValue,
+        logoPlayerValue : logoPlayerValue,
+        flagPlayerValue :flagPlayerValue,
         nationalityPlayerValue :nationalityPlayerValue,
         liguePlayerValue : liguePlayerValue,
         ratingPlayerValue :ratingPlayerValue,
@@ -91,16 +98,18 @@ function addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,nationalityPlaye
         spdGoalkeeperValue :spdGoalkeeperValue,
         posGoalkeeperValue : posGoalkeeperValue
     }
+    console.log(player);
     arrPlayers.push(player)
     displayPlayers();
-    // console.log(player);
     
 }
 
-function addPlayerFunction(nomPlayerValue, photoPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,pacPlayerValue,shoPlayerValue,pasPlayerValue,driPlayerValue,defPlayerValue,phyPlayerValue){
-    let goalkeeper = {
+function addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,pacPlayerValue,shoPlayerValue,pasPlayerValue,driPlayerValue,defPlayerValue,phyPlayerValue){
+    let player = {
         nomPlayerValue : nomPlayerValue,
         photoPlayerValue : photoPlayerValue,
+        logoPlayerValue: logoPlayerValue,
+        flagPlayerValue : flagPlayerValue,
         nationalityPlayerValue :nationalityPlayerValue,
         liguePlayerValue : liguePlayerValue,
         ratingPlayerValue :ratingPlayerValue,
@@ -112,7 +121,7 @@ function addPlayerFunction(nomPlayerValue, photoPlayerValue,nationalityPlayerVal
         defPlayerValue :defPlayerValue,
         phyPlayerValue : phyPlayerValue
     }
-    arrPlayers.push(goalkeeper)
+    arrPlayers.push(player)
     displayPlayers();
 }
 
@@ -120,52 +129,99 @@ function addPlayerFunction(nomPlayerValue, photoPlayerValue,nationalityPlayerVal
 // display players
 
 let divDekka2 = document.querySelector('.card-player2')
+let divDekka3 = document.querySelector('.card-player3')
 function displayPlayers(){
 
     divDekka2.innerHTML= ''
+    divDekka3.innerHTML= ''
     let newCard = document.createElement('div')
     newCard.classList.add('card-content')
     arrPlayers.forEach(player=>{
+        if( player.positionPlayerValue !== 'GK' ){
         newCard.innerHTML=`
                 <div class="rating-position">
-                        <div class="player-rating">${player.ratingPlayerValue0}</div>
+                        <div class="player-rating">${player.ratingPlayerValue}</div>
                         <div class="player-position">${player.positionPlayerValue}</div>
                     </div>
-                <img src="https://cdn.sofifa.net/players/231/747/25_120.png" alt="">
+                <img src="${player.photoPlayerValue}" alt="">
                 <div class="player-informations">
-                    <div class="player-name">Mbappe</div>
+                    <div class="player-name">${player.nomPlayerValue}</div>
                     <div class="player-score">
                         <div class="pace-div">
                             <div class="pac">PAC</div>
-                            <div class="pac-rating">98</div>
+                            <div class="pac-rating">${player.pacPlayerValue}</div>
                         </div>
                         <div class="pace-div">
                             <div class="pac">SHO</div>
-                            <div class="pac-rating">98</div>
+                            <div class="pac-rating">${player.shoPlayerValue}</div>
                         </div>
                         <div class="pace-div">
                             <div class="pac">PAS</div>
-                            <div class="pac-rating">98</div>
+                            <div class="pac-rating">${player.pasPlayerValue}</div>
                         </div>
                         <div class="pace-div">
                             <div class="pac">DRI</div>
-                            <div class="pac-rating">98</div>
+                            <div class="pac-rating">${player.driPlayerValue}</div>
                         </div>
                         <div class="pace-div">
                             <div class="pac">DEF</div>
-                            <div class="pac-rating">98</div>
+                            <div class="pac-rating">${player.defPlayerValue}</div>
                         </div>
                         <div class="pace-div">
                             <div class="pac">PHY</div>
-                            <div class="pac-rating">98</div>
+                            <div class="pac-rating">${player.phyPlayerValue}</div>
                         </div>
                     </div>
                     <div class="flags">
-                        <img src="./assets/images/Flag-France.webp" alt="">
-                        <img src="./assets/images/real-madrid.png" alt="">
+                        <img src="${player.flagPlayerValue}" alt="">
+                        <img src="${player.logoPlayerValue}" alt="">
                     </div>
         `
         divDekka2.appendChild(newCard)
+    }
+    else{
+        newCard.innerHTML=`
+                <div class="rating-position">
+                        <div class="player-rating">${player.ratingPlayerValue}</div>
+                        <div class="player-position">${player.positionPlayerValue}</div>
+                    </div>
+                <img src="${player.photoPlayerValue}" alt="">
+                <div class="player-informations">
+                    <div class="player-name">${player.nomPlayerValue}</div>
+                    <div class="player-score">
+                        <div class="pace-div">
+                            <div class="pac">DIV</div>
+                            <div class="pac-rating">${player.divGoalkeeperValue}</div>
+                        </div>
+                        <div class="pace-div">
+                            <div class="pac">HAN</div>
+                            <div class="pac-rating">${player.hanGoalkeeperValue}</div>
+                        </div>
+                        <div class="pace-div">
+                            <div class="pac">KIC</div>
+                            <div class="pac-rating">${player.kicGoalkeeperValue}</div>
+                        </div>
+                        <div class="pace-div">
+                            <div class="pac">REF</div>
+                            <div class="pac-rating">${player.refGoalkeeperValue}</div>
+                        </div>
+                        <div class="pace-div">
+                            <div class="pac">SPD</div>
+                            <div class="pac-rating">${player.spdGoalkeeperValue}</div>
+                        </div>
+                        <div class="pace-div">
+                            <div class="pac">POS</div>
+                            <div class="pac-rating">${player.posGoalkeeperValue}</div>
+                        </div>
+                    </div>
+                    <div class="flags">
+                        <img src="${player.flagPlayerValue}" alt="">
+                        <img src="${player.logoPlayerValue}" alt="">
+                    </div>
+        `
+        divDekka3.appendChild(newCard)
+
+    }
     })
 
 }

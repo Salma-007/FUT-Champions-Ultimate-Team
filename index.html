@@ -131,7 +131,7 @@
             </div>
             </div>
             <div class="card card-player2"></div>
-            <div class="card"></div>
+            <div class="card card-player3"></div>
             <div class="card"></div>
             <div class="card"></div>
             <div class="card"></div>
@@ -145,11 +145,15 @@
     <section class="form-player ">
         <div class="form-container">
             <h2>FIFA Player Informations</h2>
-            <form  method="post">
+            <form  method="post" id="player-formulaire">
                 <label>Nom:</label>
                 <input type="text" class="nom-player" placeholder="enter player name">
                 <label>Picture:</label>
                 <input type="text" class="photo-player" placeholder="enter the CDN link of player">
+                <label>Logo:</label>
+                <input type="text" class="logo-player" placeholder="enter the CDN link of the logo">
+                <label>Flag:</label>
+                <input type="text" class="flag-player" placeholder="enter the CDN link of the flag">
                 <label>Nationality:</label>
                 <input type="text" class="nationality-player" placeholder="enter player nationality">
                 <label>Ligue:</label>
@@ -158,15 +162,14 @@
                 <input type="text" class="rating-player" placeholder="enter Overall Rating">
                 <label>Position:</label>
                 <select name="" class="option-position">
-                    <option value="striker">ST</option>
-                    <option value="leftWing">LW</option>
-                    <option value="rightWing">RW</option>
-                    <option value="goalkeeper">GL</option>
-                    <option value="middle">CM</option>
-                    <option value="back">CB</option>
-                    <option value="leftBack">LB</option>
-                    <option value="rightBack">RB</option>
-
+                    <option value="ST">ST</option>
+                    <option value="LW">LW</option>
+                    <option value="RW">RW</option>
+                    <option value="GK">GK</option>
+                    <option value="CM">CM</option>
+                    <option value="CB">CB</option>
+                    <option value="LB">LB</option>
+                    <option value="RB">RB</option>
                 </select>
                 <section class="normal-player">
                     <div class="player-ratings">
