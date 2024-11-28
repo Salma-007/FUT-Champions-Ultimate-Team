@@ -63,6 +63,7 @@ body{
 }
 .card-content{
     margin-top: 40px;
+    position: relative;
     
 }
 .card img{
@@ -174,7 +175,20 @@ button:hover {
     position: relative;
     /* opacity: 0.5; */
 }
+.delete-icon {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 18px;  
+    cursor: pointer;
+    color: #333;  
+    font-weight: bold;
+}
 
+
+.delete-icon:hover {
+    color: red;  
+}
 .card-GL{
     position: relative;
     display: flex;
@@ -182,6 +196,8 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
+
+
 
 .LW {
     grid-row: 6/15;

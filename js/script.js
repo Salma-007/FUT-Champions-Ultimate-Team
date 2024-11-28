@@ -133,7 +133,6 @@ function addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flag
 
 
 
-
 // localStorage.clear();
 
 // affichage des players
@@ -189,6 +188,7 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard1.innerHTML=`
+                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -236,6 +236,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -293,6 +294,7 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
     
                             newCard.innerHTML=`
+                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -343,6 +345,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                             <div class="rating-position-gl">
                                     <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                                     <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -400,6 +403,7 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
+                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -447,6 +451,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -505,6 +510,7 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
+                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -552,6 +558,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -610,6 +617,7 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
+                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -657,6 +665,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -715,6 +724,7 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
+                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -762,6 +772,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -820,6 +831,7 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
+                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -868,6 +880,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -916,6 +929,7 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -976,6 +990,7 @@ function displayPlayers(){
 
                             newCard2.innerHTML=`
                                     <div class="rating-position">
+                                    <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
                                         </div>
@@ -1023,6 +1038,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1071,6 +1087,7 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1119,6 +1136,7 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1172,6 +1190,16 @@ function displayPlayers(){
 )
 
 }
+
+function deleteCard(namePlayer) {
+
+    arrPlayers = arrPlayers.filter(player => player.nomPlayerValue !== namePlayer)
+    localStorage.setItem("MyStorage", JSON.stringify(arrPlayers))
+    displayPlayers();
+
+
+}
+
 
 
 
