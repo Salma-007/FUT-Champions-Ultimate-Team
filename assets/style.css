@@ -11,6 +11,7 @@ body{
     background-size: cover;
 
 }
+
 .stade-content{
     width: 80%;
     display: flex;
@@ -418,8 +419,14 @@ button:hover {
     height: 10px;
     margin-top: 2px;
 }
-
-
+.error-photo-player , .error-logo-player, .error-flag-player, .error-nationality-player, .error-ligue-player , .error-rating-player, .error-pac-player, .error-sho-player, .error-pas-player, .error-dri-player, .error-def-player, .error-phy-player, .error-div-player, .error-han-player, .error-kic-player, .error-ref-player, .error-spd-player, .error-pos-player{
+    color: red;
+    display: none;
+} 
+#error-message{
+    color: red;
+    display: none;
+}
 @media screen and (max-width: 1026px) and (min-width: 481px){
     body{
         display: flex;

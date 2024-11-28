@@ -103,6 +103,7 @@ EditPlayer.addEventListener('click', function(){
 
 })
 
+
 addPlayer.addEventListener('click',function(){
 
     let nomPlayerValue = nomPlayer.value;
@@ -114,28 +115,187 @@ addPlayer.addEventListener('click',function(){
     let logoPlayerValue = logoPlayer.value
     let flagPlayerValue = flagPlayer.value
 
-    if(positionPlayerValue == 'GK'){
-        let divGoalkeeperValue = divGoalkeeper.value;
-        let hanGoalkeeperValue = hanGoalkeeper.value;
-        let kicGoalkeeperValue = kicGoalkeeper.value;
-        let refGoalkeeperValue = refGoalkeeper.value;
-        let spdGoalkeeperValue = spdGoalkeeper.value;
-        let posGoalkeeperValue = posGoalkeeper.value;
+    var regexNom = /^[A-Za-zÀ-ÿ\s]+$/;
+    var regexURL = /^(https?:\/\/)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}(\/[^\s]*)?$/; 
+    var regexLigue = /^[A-Za-zÀ-ÿ0-9\s\-]+$/; 
+    var regexRating = /^[1-9]{1}[0-9]{0,2}$/;
 
-        addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,divGoalkeeperValue,hanGoalkeeperValue,kicGoalkeeperValue,refGoalkeeperValue,spdGoalkeeperValue,posGoalkeeperValue);
-        document.getElementById("player-formulaire").reset();
-    }
-    else{
-        let pacPlayerValue = pacPlayer.value;
-        let shoPlayerValue = shoPlayer.value;
-        let pasPlayerValue = pasPlayer.value;
-        let driPlayerValue = driPlayer.value;
-        let defPlayerValue = defPlayer.value;
-        let phyPlayerValue = phyPlayer.value;
+    var isValid = true;
 
-        addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,pacPlayerValue,shoPlayerValue,pasPlayerValue,driPlayerValue,defPlayerValue,phyPlayerValue);
-        document.getElementById("player-formulaire").reset();
+    if (!regexNom.test(nomPlayerValue)) {
+        document.getElementById('error-message').style.display = 'block';
+        isValid = false;
+    } else {
+        document.getElementById('error-message').style.display = 'none';
     }
+
+    if (!regexURL.test(photoPlayerValue)) {
+        document.querySelector('.error-photo-player').style.display = 'block';
+        isValid = false;
+    } else {
+        document.querySelector('.error-photo-player').style.display = 'none';
+    }
+
+    if (!regexURL.test(logoPlayerValue)) {
+        document.querySelector('.error-logo-player').style.display = 'block';
+        isValid = false;
+    } else {
+        document.querySelector('.error-logo-player').style.display = 'none';
+    }
+
+    if (!regexURL.test(flagPlayerValue)) {
+        document.querySelector('.error-flag-player').style.display = 'block';
+        isValid = false;
+    } else {
+        document.querySelector('.error-flag-player').style.display = 'none';
+    }
+
+    if (!regexNom.test(nationalityPlayerValue)) {
+        document.querySelector('.error-nationality-player').style.display = 'block';
+        isValid = false;
+    } else {
+        document.querySelector('.error-nationality-player').style.display = 'none';
+    }
+
+    if (!regexLigue.test(liguePlayerValue)) {
+        document.querySelector('.error-ligue-player').style.display = 'block';
+        isValid = false;
+    } else {
+        document.querySelector('.error-ligue-player').style.display = 'none';
+    }
+
+    if (!regexRating.test(ratingPlayerValue)) {
+        document.querySelector('.error-rating-player').style.display = 'block';
+        isValid = false;
+    } else {
+        document.querySelector('.error-rating-player').style.display = 'none';
+    }
+
+    if (isValid) {
+        
+        if(positionPlayerValue == 'GK'){
+
+            let divGoalkeeperValue = divGoalkeeper.value;
+            let hanGoalkeeperValue = hanGoalkeeper.value;
+            let kicGoalkeeperValue = kicGoalkeeper.value;
+            let refGoalkeeperValue = refGoalkeeper.value;
+            let spdGoalkeeperValue = spdGoalkeeper.value;
+            let posGoalkeeperValue = posGoalkeeper.value;
+
+            var regexRating = /^[1-9][0-9]?$|^99$/;
+            var isValid = true;
+
+            if (!regexRating.test(divGoalkeeperValue)) {
+                document.querySelector('.error-div-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-div-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(hanGoalkeeperValue)) {
+                document.querySelector('.error-han-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-han-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(kicGoalkeeperValue)) {
+                document.querySelector('.error-kic-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-kic-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(refGoalkeeperValue)) {
+                document.querySelector('.error-ref-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-ref-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(spdGoalkeeperValue)) {
+                document.querySelector('.error-spd-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-spd-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(posGoalkeeperValue)) {
+                document.querySelector('.error-pos-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-pos-player').style.display = 'none';
+            }
+            if (isValid){
+            addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,divGoalkeeperValue,hanGoalkeeperValue,kicGoalkeeperValue,refGoalkeeperValue,spdGoalkeeperValue,posGoalkeeperValue);
+            alert('Le goalkeeper ' + nomPlayerValue + ' a été ajouté !');
+            document.getElementById("player-formulaire").reset();
+         }
+        }
+        else{
+            
+            let pacPlayerValue = pacPlayer.value;
+            let shoPlayerValue = shoPlayer.value;
+            let pasPlayerValue = pasPlayer.value;
+            let driPlayerValue = driPlayer.value;
+            let defPlayerValue = defPlayer.value;
+            let phyPlayerValue = phyPlayer.value;
+            var regexRating = /^[1-9][0-9]?$|^99$/;
+            var isValid = true;
+
+            if (!regexRating.test(pacPlayerValue)) {
+                document.querySelector('.error-pac-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-pac-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(shoPlayerValue)) {
+                document.querySelector('.error-sho-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-sho-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(pasPlayerValue)) {
+                document.querySelector('.error-pas-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-pas-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(driPlayerValue)) {
+                document.querySelector('.error-dri-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-dri-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(defPlayerValue)) {
+                document.querySelector('.error-def-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-def-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(phyPlayerValue)) {
+                document.querySelector('.error-phy-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-phy-player').style.display = 'none';
+            }
+
+            if (isValid){
+                addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,pacPlayerValue,shoPlayerValue,pasPlayerValue,driPlayerValue,defPlayerValue,phyPlayerValue);
+                alert('Le joueur ' + nomPlayerValue + ' a été ajouté !');
+                document.getElementById("player-formulaire").reset();
+            }
+
+        }
+    }
+    
+
+    
     
 })
 

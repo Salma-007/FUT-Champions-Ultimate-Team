@@ -85,19 +85,26 @@
             <h2>FIFA Player Informations</h2>
             <form  method="post" id="player-formulaire">
                 <label>Nom:</label>
-                <input type="text" class="nom-player" placeholder="enter player name">
+                <input type="text" class="nom-player" id="name" placeholder="enter player name">
+                <div id="error-message" >nom invalide.</div>
                 <label>Picture:</label>
                 <input type="text" class="photo-player" placeholder="enter the CDN link of player">
+                <div class="error-photo-player" > lien invalide.</div>
                 <label>Logo:</label>
                 <input type="text" class="logo-player" placeholder="enter the CDN link of the logo">
+                <div class="error-logo-player" >lien invalide.</div>
                 <label>Flag:</label>
                 <input type="text" class="flag-player" placeholder="enter the CDN link of the flag">
+                <div class="error-flag-player" >lien invalide.</div>
                 <label>Nationality:</label>
                 <input type="text" class="nationality-player" placeholder="enter player nationality">
+                <div class="error-nationality-player" >nationalité invalide.</div>
                 <label>Ligue:</label>
                 <input type="text" class="ligue-player" placeholder="enter ligue">
+                <div class="error-ligue-player" >ligue invalide.</div>
                 <label>Rating:</label>
-                <input type="text" class="rating-player" placeholder="enter Overall Rating">
+                <input type="text" class="rating-player" placeholder="enter range 1 - 99">
+                <div class="error-rating-player" >rating invalide.</div>
                 <label>Position:</label>
                 <select name="" class="option-position">
                     <option value="ST">ST</option>
@@ -114,59 +121,78 @@
                     <div class="player-ratings ">
                         <label>PAC:</label>
                         <input type="text" class="pac-player input-rating" placeholder="enter rating">
+                     <div class="error-pac-player" >pac invalide.</div>
+                        
                     </div>
                     <div class="player-ratings">
                         <label>SHO:</label>
                         <input type="text" class="sho-player input-rating" placeholder="enter rating">
+                    <div class="error-sho-player" >sho invalide.</div>
+                        
                     </div>
                     </div>
                     <div class="rating-flex-deux">
                     <div class="player-ratings">
                         <label>PAS:</label>
                         <input type="text" class="pas-player input-rating" placeholder="enter rating">
+                    <div class="error-pas-player" style="color: red; display: none;">pas invalide.</div>
+                        
                     </div>
                     <div class="player-ratings">
                         <label>DRI:</label>
                         <input type="text" class="dri-player input-rating" placeholder="enter rating">
+                    <div class="error-dri-player" style="color: red; display: none;">dri invalide.</div>
+                        
                     </div></div>
                     <div class="rating-flex-deux">
                     <div class="player-ratings">
                         <label>DEF:</label>
                         <input type="text" class="def-player input-rating" placeholder="enter rating">
+                    <div class="error-def-player" style="color: red; display: none;">def invalide.</div>
+                        
                     </div>
                     <div class="player-ratings">
                         <label>PHY:</label>
                         <input type="text" class="phy-player input-rating" placeholder="enter rating">
+                    <div class="error-phy-player" style="color: red; display: none;">phy invalide.</div>
+                        
                     </div></div>
 
                 </section>
                 <section class="goalkeeper-player">
-                                <div class="rating-flex-deux">
+                    <div class="rating-flex-deux">
                     <div class="player-ratings">
                         <label>DIV:</label>
                         <input type="text" class="div-goalkeeper input-rating" placeholder="enter rating">
+                        <div class="error-div-player" >div invalide.</div>
+                    
                     </div>
                     <div class="player-ratings">
                         <label>HAN:</label>
                         <input type="text" class="han-goalkeeper input-rating" placeholder="enter rating">
+                    <div class="error-han-player" >han invalide.</div>
                     </div></div>
                         <div class="rating-flex-deux">
                     <div class="player-ratings">
                         <label>KIC:</label>
                         <input type="text" class="kic-goalkeeper input-rating" placeholder="enter rating">
+                    <div class="error-kic-player" >kic invalide.</div>
                     </div>
                     <div class="player-ratings">
                         <label>REF:</label>
                         <input type="text" class="ref-goalkeeper input-rating" placeholder="enter rating">
+                    <div class="error-ref-player" >ref invalide.</div>
                     </div></div>
                         <div class="rating-flex-deux">
                     <div class="player-ratings">
                         <label>SPD:</label>
                         <input type="text" class="spd-goalkeeper input-rating" placeholder="enter rating">
+                    <div class="error-spd-player" >spd invalide.</div>
                     </div>
                     <div class="player-ratings">
                         <label>POS:</label>
                         <input type="text" class="pos-goalkeeper input-rating" placeholder="enter rating">
+                    <div class="error-pos-player" >pos invalide.</div>
                     </div></div>
 
                 </section>
