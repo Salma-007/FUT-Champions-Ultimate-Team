@@ -270,7 +270,7 @@ function displayPlayers(){
         else if(player.positionPlayerValue == 'GK'){
             
             if( goalKeeperDiv.innerHTML.trim() !== '' ){
-                
+                // push
                 changements.forEach(changement0 => {
                     if(changement0.innerHTML == ''){
     
@@ -478,4 +478,7 @@ function displayPlayers(){
 )
 
 }
+
+
+
 
