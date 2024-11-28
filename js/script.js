@@ -3,7 +3,8 @@ let positionSelect = document.querySelector('.option-position');
 let normalPlayerSection = document.querySelector('.normal-player');
 let goalkeeperPlayerSection = document.querySelector('.goalkeeper-player');
 
-let arrPlayers = [];
+let arrPlayers = JSON.parse(localStorage.getItem("MyStorage")) || [];
+displayPlayers();
 
 positionSelect.addEventListener('change',function(){
     const selectedPosition = positionSelect.value;
@@ -44,11 +45,7 @@ let driPlayer = document.querySelector('.dri-player')
 let defPlayer = document.querySelector('.def-player')
 let phyPlayer = document.querySelector('.phy-player')
 
-// array des div de changement
-let changements = []
-let changement = document.querySelectorAll('.changement')
-changements = Array.from(changement)
-changements.reverse()
+
 
 // array des div de CM
 let middleCenter = document.querySelectorAll('.CM')
@@ -57,7 +54,7 @@ let middleCenter = document.querySelectorAll('.CM')
 
 let backCenter = document.querySelectorAll('.CB')
 
-displayPlayers()
+
 
 addPlayer.addEventListener('click',function(){
 
@@ -114,6 +111,7 @@ function addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,
     }
     console.log(player);
     arrPlayers.push(player)
+    localStorage.setItem("MyStorage", JSON.stringify(arrPlayers))
     displayPlayers();
     
 }
@@ -137,32 +135,39 @@ function addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flag
     }
     arrPlayers.push(player)
     console.log(arrPlayers);
-    
+    localStorage.setItem("MyStorage", JSON.stringify(arrPlayers))
     displayPlayers();
 }
 
-let leftWing = document.querySelector('.LW')
-let goalKeeperDiv = document.querySelector('.GL')
-let rightWing = document.querySelector('.RW')
 
+
+
+// localStorage.clear();
 
 // affichage des players
-let setrouve = false;
+
 function displayPlayers(){
-    changements.forEach(x=>{
-        x.innerHTML=''
-    })
+    let leftWing = document.querySelector('.LW')
+    leftWing.innerHTML = ''
+    let goalKeeperDiv = document.querySelector('.GL');
+    goalKeeperDiv.innerHTML = ''
+    let rightWing = document.querySelector('.RW');
+    rightWing.innerHTML = ''
+    
+    let changements = []
+    let changement = document.querySelectorAll('.changement')
+    changements = Array.from(changement)
+    changements.reverse()
     let newCard = document.createElement('div')
     newCard.classList.add('card-content')
-    let newCardPlayerStade = document.createElement('div')
-    newCardPlayerStade.classList.add('card-GL')
 
-    arrPlayers.forEach(player=>{
+    arrPlayers.forEach( player=>{
         
         if (player.positionPlayerValue == 'LW' ){
+        
             
             if( leftWing.innerHTML.trim() !== ''  ){
-               
+                
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML == ''){
@@ -212,6 +217,8 @@ function displayPlayers(){
                 
             }
             else{
+                let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
@@ -259,8 +266,9 @@ function displayPlayers(){
                
             }
         }
+        
         else if(player.positionPlayerValue == 'GK'){
-
+            
             if( goalKeeperDiv.innerHTML.trim() !== '' ){
                 
                 changements.forEach(changement0 => {
@@ -314,6 +322,8 @@ function displayPlayers(){
             }
             else
             {
+                let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
                             <div class="rating-position-gl">
                                     <div class="player-rating-gl">${player.ratingPlayerValue}</div>
@@ -363,7 +373,7 @@ function displayPlayers(){
         else if (player.positionPlayerValue == 'RW' ){
             
             if( rightWing.innerHTML.trim() !== ''  ){
-
+                
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML == ''){
@@ -413,6 +423,8 @@ function displayPlayers(){
                 
             }
             else{
+                let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
