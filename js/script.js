@@ -47,6 +47,35 @@ let defPlayer = document.querySelector('.def-player')
 let phyPlayer = document.querySelector('.phy-player')
 
 EditPlayer.addEventListener('click', function(){
+    let playerForm = document.querySelector('.nom-player').value; 
+    
+    let playerToEdit = arrPlayers.find(player => player.nomPlayerValue === playerForm);
+    let index = arrPlayers.indexOf(playerToEdit);
+    console.log(ratingPlayer.value);
+
+        console.log(arrPlayers[index]);
+        
+        arrPlayers[index] = {
+            nomPlayerValue: playerForm,
+            photoPlayerValue: photoPlayer.value,
+            logoPlayerValue: logoPlayer.value,
+            flagPlayerValue: flagPlayer.value,
+            nationalityPlayerValue: nationalityPlayer.value,
+            liguePlayerValue: liguePlayer.value,
+            ratingPlayerValue: ratingPlayer.value,
+            positionPlayerValue: positionPlayer.value,
+            pacPlayerValue: pacPlayer.value,
+            shoPlayerValue: shoPlayer.value,
+            pasPlayerValue: pasPlayer.value,
+            driPlayerValue: driPlayer.value,
+            defPlayerValue: defPlayer.value,
+            phyPlayerValue: phyPlayer.value
+        }
+        localStorage.setItem("MyStorage", JSON.stringify(arrPlayers));
+        displayPlayers();
+        addPlayer.style.display = 'block'
+        EditPlayer.style.display = 'none'
+        document.getElementById("player-formulaire").reset();
     
 
 })
