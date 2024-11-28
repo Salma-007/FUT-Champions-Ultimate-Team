@@ -142,7 +142,7 @@ function addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flag
 
 
 
-// localStorage.clear();
+localStorage.clear();
 
 // affichage des players
 
@@ -158,13 +158,17 @@ function displayPlayers(){
     let changement = document.querySelectorAll('.changement')
     changements = Array.from(changement)
     changements.reverse()
-    let newCard = document.createElement('div')
-    newCard.classList.add('card-content')
+    changements.forEach(change=>{
+        change.innerHTML='';
+    })
+    
 
     arrPlayers.forEach( player=>{
         
         if (player.positionPlayerValue == 'LW' ){
-        
+            let newCard1 = document.createElement('div')
+            newCard1.innerHTML = ''
+            newCard1.classList.add('card-content')
             
             if( leftWing.innerHTML.trim() !== ''  ){
                 
@@ -172,7 +176,7 @@ function displayPlayers(){
 
                     if(changement0.innerHTML == ''){
 
-                            newCard.innerHTML=`
+                            newCard1.innerHTML=`
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -211,7 +215,7 @@ function displayPlayers(){
                                             <img src="${player.logoPlayerValue}" alt="">
                                         </div>
                             `
-                            changement0.appendChild(newCard)
+                            changement0.appendChild(newCard1)
                     }
                 })
                 
@@ -268,8 +272,11 @@ function displayPlayers(){
         }
         
         else if(player.positionPlayerValue == 'GK'){
-            
+            let newCard = document.createElement('div')
+                newCard.innerHTML=''
+                newCard.classList.add('card-content')
             if( goalKeeperDiv.innerHTML.trim() !== '' ){
+                
                 // push
                 changements.forEach(changement0 => {
                     if(changement0.innerHTML == ''){
@@ -371,14 +378,17 @@ function displayPlayers(){
 
         }
         else if (player.positionPlayerValue == 'RW' ){
-            
+            let newCard2 = document.createElement('div')
+                newCard2.innerHTML=''
+                newCard2.classList.add('card-content')
             if( rightWing.innerHTML.trim() !== ''  ){
+                
                 
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML == ''){
 
-                            newCard.innerHTML=`
+                            newCard2.innerHTML=`
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -417,7 +427,7 @@ function displayPlayers(){
                                             <img src="${player.logoPlayerValue}" alt="">
                                         </div>
                             `
-                            changement0.appendChild(newCard)
+                            changement0.appendChild(newCard2)
                     }
                 })
                 
