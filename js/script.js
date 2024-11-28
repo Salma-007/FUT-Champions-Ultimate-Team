@@ -47,15 +47,6 @@ let phyPlayer = document.querySelector('.phy-player')
 
 
 
-// array des div de CM
-let middleCenter = document.querySelectorAll('.CM')
-
-// array des div de CB
-
-let backCenter = document.querySelectorAll('.CB')
-
-
-
 addPlayer.addEventListener('click',function(){
 
     let nomPlayerValue = nomPlayer.value;
@@ -142,18 +133,39 @@ function addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flag
 
 
 
-localStorage.clear();
+
+// localStorage.clear();
 
 // affichage des players
 
 function displayPlayers(){
+
+    // initialisation des div du stade
     let leftWing = document.querySelector('.LW')
     leftWing.innerHTML = ''
     let goalKeeperDiv = document.querySelector('.GL');
     goalKeeperDiv.innerHTML = ''
     let rightWing = document.querySelector('.RW');
     rightWing.innerHTML = ''
-    
+    let striker = document.querySelector('.ST')
+    striker.innerHTML = ''
+    let rightBack = document.querySelector('.RB')
+    rightBack.innerHTML=''
+    let leftBack = document.querySelector('.LB')
+    leftBack.innerHTML=''
+    let centerBack1 = document.querySelector('.CB1')
+    centerBack1.innerHTML = ''
+    let centerBack2 = document.querySelector('.CB2')
+    centerBack2.innerHTML = ''
+    let centerMiddle1 = document.querySelector('.CM1')
+    centerMiddle1.innerHTML = ''
+    let centerMiddle2 = document.querySelector('.CM2')
+    centerMiddle2.innerHTML = ''
+    let centerMiddle3 = document.querySelector('.CM3')
+    centerMiddle3.innerHTML = ''
+
+
+    // inititalisation du tableau et div de changement
     let changements = []
     let changement = document.querySelectorAll('.changement')
     changements = Array.from(changement)
@@ -270,7 +282,6 @@ function displayPlayers(){
                
             }
         }
-        
         else if(player.positionPlayerValue == 'GK'){
             let newCard = document.createElement('div')
                 newCard.innerHTML=''
@@ -480,6 +491,679 @@ function displayPlayers(){
                   `
                   rightWing.appendChild(newCardPlayerStade)
                
+            }
+        }
+        else if (player.positionPlayerValue == 'ST' ){
+            let newCard2 = document.createElement('div')
+                newCard2.innerHTML=''
+                newCard2.classList.add('card-content')
+            if( striker.innerHTML.trim() !== ''  ){
+                
+                
+                changements.forEach(changement0 => {
+
+                    if(changement0.innerHTML == ''){
+
+                            newCard2.innerHTML=`
+                                    <div class="rating-position">
+                                            <div class="player-rating">${player.ratingPlayerValue}</div>
+                                            <div class="player-position">${player.positionPlayerValue}</div>
+                                        </div>
+                                    <img src="${player.photoPlayerValue}" alt="">
+                                    <div class="player-informations">
+                                        <div class="player-name">${player.nomPlayerValue}</div>
+                                        <div class="player-score">
+                                            <div class="pace-div">
+                                                <div class="pac">DIV</div>
+                                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">HAN</div>
+                                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">KIC</div>
+                                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">REF</div>
+                                                <div class="pac-rating">${player.driPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">SPD</div>
+                                                <div class="pac-rating">${player.defPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">POS</div>
+                                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                                            </div>
+                                        </div>
+                                        <div class="flags">
+                                            <img src="${player.flagPlayerValue}" alt="">
+                                            <img src="${player.logoPlayerValue}" alt="">
+                                        </div>
+                            `
+                            changement0.appendChild(newCard2)
+                    }
+                })
+                
+            }
+            else{
+                let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
+                newCardPlayerStade.innerHTML=`
+                    <div class="rating-position-gl">
+                            <div class="player-rating-gl">${player.ratingPlayerValue}</div>
+                            <div class="player-position-gl">${player.positionPlayerValue}</div>
+                        </div>
+                        <img src="${player.photoPlayerValue}" alt="">
+                        <div class="player-informations-GL">
+                        <div class="player-name-GL">${player.nomPlayerValue}</div>
+                        <div class="player-score-GL">
+                            <div class="flex-player">
+                            <div class="pace-div">
+                                <div class="pac">PAC</div>
+                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">SHO</div>
+                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PAS</div>
+                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DRI</div>
+                                <div class="pac-rating">${player.driPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DEF</div>
+                                <div class="pac-rating">${player.defPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PHY</div>
+                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                            </div></div>
+                            <div class="flags-player">
+                                <img src="${player.flagPlayerValue}" alt="">
+                                <img src=" ${player.logoPlayerValue} " alt="">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                  `
+                  striker.appendChild(newCardPlayerStade)
+               
+            }
+        }
+        else if (player.positionPlayerValue == 'RB' ){
+            let newCard2 = document.createElement('div')
+                newCard2.innerHTML=''
+                newCard2.classList.add('card-content')
+            if( rightBack.innerHTML.trim() !== ''  ){
+                
+                
+                changements.forEach(changement0 => {
+
+                    if(changement0.innerHTML == ''){
+
+                            newCard2.innerHTML=`
+                                    <div class="rating-position">
+                                            <div class="player-rating">${player.ratingPlayerValue}</div>
+                                            <div class="player-position">${player.positionPlayerValue}</div>
+                                        </div>
+                                    <img src="${player.photoPlayerValue}" alt="">
+                                    <div class="player-informations">
+                                        <div class="player-name">${player.nomPlayerValue}</div>
+                                        <div class="player-score">
+                                            <div class="pace-div">
+                                                <div class="pac">DIV</div>
+                                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">HAN</div>
+                                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">KIC</div>
+                                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">REF</div>
+                                                <div class="pac-rating">${player.driPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">SPD</div>
+                                                <div class="pac-rating">${player.defPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">POS</div>
+                                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                                            </div>
+                                        </div>
+                                        <div class="flags">
+                                            <img src="${player.flagPlayerValue}" alt="">
+                                            <img src="${player.logoPlayerValue}" alt="">
+                                        </div>
+                            `
+                            changement0.appendChild(newCard2)
+                    }
+                })
+                
+            }
+            else{
+                let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
+                newCardPlayerStade.innerHTML=`
+                    <div class="rating-position-gl">
+                            <div class="player-rating-gl">${player.ratingPlayerValue}</div>
+                            <div class="player-position-gl">${player.positionPlayerValue}</div>
+                        </div>
+                        <img src="${player.photoPlayerValue}" alt="">
+                        <div class="player-informations-GL">
+                        <div class="player-name-GL">${player.nomPlayerValue}</div>
+                        <div class="player-score-GL">
+                            <div class="flex-player">
+                            <div class="pace-div">
+                                <div class="pac">PAC</div>
+                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">SHO</div>
+                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PAS</div>
+                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DRI</div>
+                                <div class="pac-rating">${player.driPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DEF</div>
+                                <div class="pac-rating">${player.defPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PHY</div>
+                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                            </div></div>
+                            <div class="flags-player">
+                                <img src="${player.flagPlayerValue}" alt="">
+                                <img src=" ${player.logoPlayerValue} " alt="">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                  `
+                  rightBack.appendChild(newCardPlayerStade)
+               
+            }
+        }
+        else if (player.positionPlayerValue == 'LB' ){
+            let newCard2 = document.createElement('div')
+                newCard2.innerHTML=''
+                newCard2.classList.add('card-content')
+            if( leftBack.innerHTML.trim() !== ''  ){
+                
+                
+                changements.forEach(changement0 => {
+
+                    if(changement0.innerHTML == ''){
+
+                            newCard2.innerHTML=`
+                                    <div class="rating-position">
+                                            <div class="player-rating">${player.ratingPlayerValue}</div>
+                                            <div class="player-position">${player.positionPlayerValue}</div>
+                                        </div>
+                                    <img src="${player.photoPlayerValue}" alt="">
+                                    <div class="player-informations">
+                                        <div class="player-name">${player.nomPlayerValue}</div>
+                                        <div class="player-score">
+                                            <div class="pace-div">
+                                                <div class="pac">DIV</div>
+                                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">HAN</div>
+                                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">KIC</div>
+                                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">REF</div>
+                                                <div class="pac-rating">${player.driPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">SPD</div>
+                                                <div class="pac-rating">${player.defPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">POS</div>
+                                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                                            </div>
+                                        </div>
+                                        <div class="flags">
+                                            <img src="${player.flagPlayerValue}" alt="">
+                                            <img src="${player.logoPlayerValue}" alt="">
+                                        </div>
+                            `
+                            changement0.appendChild(newCard2)
+                    }
+                })
+                
+            }
+            else{
+                let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
+                newCardPlayerStade.innerHTML=`
+                    <div class="rating-position-gl">
+                            <div class="player-rating-gl">${player.ratingPlayerValue}</div>
+                            <div class="player-position-gl">${player.positionPlayerValue}</div>
+                        </div>
+                        <img src="${player.photoPlayerValue}" alt="">
+                        <div class="player-informations-GL">
+                        <div class="player-name-GL">${player.nomPlayerValue}</div>
+                        <div class="player-score-GL">
+                            <div class="flex-player">
+                            <div class="pace-div">
+                                <div class="pac">PAC</div>
+                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">SHO</div>
+                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PAS</div>
+                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DRI</div>
+                                <div class="pac-rating">${player.driPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DEF</div>
+                                <div class="pac-rating">${player.defPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PHY</div>
+                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                            </div></div>
+                            <div class="flags-player">
+                                <img src="${player.flagPlayerValue}" alt="">
+                                <img src=" ${player.logoPlayerValue} " alt="">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                  `
+                  leftBack.appendChild(newCardPlayerStade)
+               
+            }
+        }
+        else if (player.positionPlayerValue == 'CB' ){
+            let newCard2 = document.createElement('div')
+                newCard2.innerHTML=''
+                newCard2.classList.add('card-content')
+            if( centerBack1.innerHTML.trim() !== '' &&  centerBack2.innerHTML.trim() !== ''){
+                
+                
+                changements.forEach(changement0 => {
+
+                    if(changement0.innerHTML == ''){
+
+                            newCard2.innerHTML=`
+                                    <div class="rating-position">
+                                            <div class="player-rating">${player.ratingPlayerValue}</div>
+                                            <div class="player-position">${player.positionPlayerValue}</div>
+                                        </div>
+                                    <img src="${player.photoPlayerValue}" alt="">
+                                    <div class="player-informations">
+                                        <div class="player-name">${player.nomPlayerValue}</div>
+                                        <div class="player-score">
+                                            <div class="pace-div">
+                                                <div class="pac">DIV</div>
+                                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">HAN</div>
+                                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">KIC</div>
+                                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">REF</div>
+                                                <div class="pac-rating">${player.driPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">SPD</div>
+                                                <div class="pac-rating">${player.defPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">POS</div>
+                                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                                            </div>
+                                        </div>
+                                        <div class="flags">
+                                            <img src="${player.flagPlayerValue}" alt="">
+                                            <img src="${player.logoPlayerValue}" alt="">
+                                        </div>
+                            `
+                            changement0.appendChild(newCard2)
+                    }
+                })
+                
+            }
+            else{
+                if(centerBack1.innerHTML.trim() !== ''){
+                let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
+                newCardPlayerStade.innerHTML=`
+                    <div class="rating-position-gl">
+                            <div class="player-rating-gl">${player.ratingPlayerValue}</div>
+                            <div class="player-position-gl">${player.positionPlayerValue}</div>
+                        </div>
+                        <img src="${player.photoPlayerValue}" alt="">
+                        <div class="player-informations-GL">
+                        <div class="player-name-GL">${player.nomPlayerValue}</div>
+                        <div class="player-score-GL">
+                            <div class="flex-player">
+                            <div class="pace-div">
+                                <div class="pac">PAC</div>
+                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">SHO</div>
+                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PAS</div>
+                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DRI</div>
+                                <div class="pac-rating">${player.driPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DEF</div>
+                                <div class="pac-rating">${player.defPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PHY</div>
+                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                            </div></div>
+                            <div class="flags-player">
+                                <img src="${player.flagPlayerValue}" alt="">
+                                <img src=" ${player.logoPlayerValue} " alt="">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                  `
+                  centerBack2.appendChild(newCardPlayerStade)
+                }
+                else{
+                    let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
+                newCardPlayerStade.innerHTML=`
+                    <div class="rating-position-gl">
+                            <div class="player-rating-gl">${player.ratingPlayerValue}</div>
+                            <div class="player-position-gl">${player.positionPlayerValue}</div>
+                        </div>
+                        <img src="${player.photoPlayerValue}" alt="">
+                        <div class="player-informations-GL">
+                        <div class="player-name-GL">${player.nomPlayerValue}</div>
+                        <div class="player-score-GL">
+                            <div class="flex-player">
+                            <div class="pace-div">
+                                <div class="pac">PAC</div>
+                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">SHO</div>
+                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PAS</div>
+                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DRI</div>
+                                <div class="pac-rating">${player.driPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DEF</div>
+                                <div class="pac-rating">${player.defPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PHY</div>
+                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                            </div></div>
+                            <div class="flags-player">
+                                <img src="${player.flagPlayerValue}" alt="">
+                                <img src=" ${player.logoPlayerValue} " alt="">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                  `
+                  centerBack1.appendChild(newCardPlayerStade)
+                }
+
+            }
+        }
+        else if (player.positionPlayerValue == 'CM' ){
+            let newCard2 = document.createElement('div')
+                newCard2.innerHTML=''
+                newCard2.classList.add('card-content')
+            if( centerMiddle1.innerHTML.trim() !== '' &&  centerMiddle2.innerHTML.trim() !== '' && centerMiddle3.innerHTML.trim() !== ''){
+                
+                
+                changements.forEach(changement0 => {
+
+                    if(changement0.innerHTML == ''){
+
+                            newCard2.innerHTML=`
+                                    <div class="rating-position">
+                                            <div class="player-rating">${player.ratingPlayerValue}</div>
+                                            <div class="player-position">${player.positionPlayerValue}</div>
+                                        </div>
+                                    <img src="${player.photoPlayerValue}" alt="">
+                                    <div class="player-informations">
+                                        <div class="player-name">${player.nomPlayerValue}</div>
+                                        <div class="player-score">
+                                            <div class="pace-div">
+                                                <div class="pac">DIV</div>
+                                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">HAN</div>
+                                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">KIC</div>
+                                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">REF</div>
+                                                <div class="pac-rating">${player.driPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">SPD</div>
+                                                <div class="pac-rating">${player.defPlayerValue}</div>
+                                            </div>
+                                            <div class="pace-div">
+                                                <div class="pac">POS</div>
+                                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                                            </div>
+                                        </div>
+                                        <div class="flags">
+                                            <img src="${player.flagPlayerValue}" alt="">
+                                            <img src="${player.logoPlayerValue}" alt="">
+                                        </div>
+                            `
+                            changement0.appendChild(newCard2)
+                    }
+                })
+                
+            }
+            else{
+                if(centerMiddle1.innerHTML.trim() == ''){
+                let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
+                newCardPlayerStade.innerHTML=`
+                    <div class="rating-position-gl">
+                            <div class="player-rating-gl">${player.ratingPlayerValue}</div>
+                            <div class="player-position-gl">${player.positionPlayerValue}</div>
+                        </div>
+                        <img src="${player.photoPlayerValue}" alt="">
+                        <div class="player-informations-GL">
+                        <div class="player-name-GL">${player.nomPlayerValue}</div>
+                        <div class="player-score-GL">
+                            <div class="flex-player">
+                            <div class="pace-div">
+                                <div class="pac">PAC</div>
+                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">SHO</div>
+                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PAS</div>
+                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DRI</div>
+                                <div class="pac-rating">${player.driPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DEF</div>
+                                <div class="pac-rating">${player.defPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PHY</div>
+                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                            </div></div>
+                            <div class="flags-player">
+                                <img src="${player.flagPlayerValue}" alt="">
+                                <img src=" ${player.logoPlayerValue} " alt="">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                  `
+                  centerMiddle1.appendChild(newCardPlayerStade)
+                }
+                else if(centerMiddle2.innerHTML.trim() == ''){
+                    let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
+                newCardPlayerStade.innerHTML=`
+                    <div class="rating-position-gl">
+                            <div class="player-rating-gl">${player.ratingPlayerValue}</div>
+                            <div class="player-position-gl">${player.positionPlayerValue}</div>
+                        </div>
+                        <img src="${player.photoPlayerValue}" alt="">
+                        <div class="player-informations-GL">
+                        <div class="player-name-GL">${player.nomPlayerValue}</div>
+                        <div class="player-score-GL">
+                            <div class="flex-player">
+                            <div class="pace-div">
+                                <div class="pac">PAC</div>
+                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">SHO</div>
+                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PAS</div>
+                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DRI</div>
+                                <div class="pac-rating">${player.driPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DEF</div>
+                                <div class="pac-rating">${player.defPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PHY</div>
+                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                            </div></div>
+                            <div class="flags-player">
+                                <img src="${player.flagPlayerValue}" alt="">
+                                <img src=" ${player.logoPlayerValue} " alt="">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                  `
+                  centerMiddle2.appendChild(newCardPlayerStade)
+                }
+                else if(centerMiddle3.innerHTML.trim() == ''){
+                    let newCardPlayerStade = document.createElement('div')
+                newCardPlayerStade.classList.add('card-GL')
+                newCardPlayerStade.innerHTML=`
+                    <div class="rating-position-gl">
+                            <div class="player-rating-gl">${player.ratingPlayerValue}</div>
+                            <div class="player-position-gl">${player.positionPlayerValue}</div>
+                        </div>
+                        <img src="${player.photoPlayerValue}" alt="">
+                        <div class="player-informations-GL">
+                        <div class="player-name-GL">${player.nomPlayerValue}</div>
+                        <div class="player-score-GL">
+                            <div class="flex-player">
+                            <div class="pace-div">
+                                <div class="pac">PAC</div>
+                                <div class="pac-rating">${player.pacPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">SHO</div>
+                                <div class="pac-rating">${player.shoPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PAS</div>
+                                <div class="pac-rating">${player.pasPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DRI</div>
+                                <div class="pac-rating">${player.driPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">DEF</div>
+                                <div class="pac-rating">${player.defPlayerValue}</div>
+                            </div>
+                            <div class="pace-div">
+                                <div class="pac">PHY</div>
+                                <div class="pac-rating">${player.phyPlayerValue}</div>
+                            </div></div>
+                            <div class="flags-player">
+                                <img src="${player.flagPlayerValue}" alt="">
+                                <img src=" ${player.logoPlayerValue} " alt="">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                  `
+                  centerMiddle3.appendChild(newCardPlayerStade)
+                }
+
             }
         }
         
