@@ -20,6 +20,7 @@ positionSelect.addEventListener('change',function(){
 
 // données des joueurs
 let addPlayer = document.querySelector('.addPlayer')
+let EditPlayer = document.querySelector('.EditPlayer')
 let nomPlayer = document.querySelector('.nom-player')
 let photoPlayer = document.querySelector('.photo-player')
 let logoPlayer = document.querySelector('.logo-player')
@@ -45,7 +46,10 @@ let driPlayer = document.querySelector('.dri-player')
 let defPlayer = document.querySelector('.def-player')
 let phyPlayer = document.querySelector('.phy-player')
 
+EditPlayer.addEventListener('click', function(){
+    
 
+})
 
 addPlayer.addEventListener('click',function(){
 
@@ -67,7 +71,7 @@ addPlayer.addEventListener('click',function(){
         let posGoalkeeperValue = posGoalkeeper.value;
 
         addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,divGoalkeeperValue,hanGoalkeeperValue,kicGoalkeeperValue,refGoalkeeperValue,spdGoalkeeperValue,posGoalkeeperValue);
-        // document.getElementById("player-formulaire").reset();
+        document.getElementById("player-formulaire").reset();
     }
     else{
         let pacPlayerValue = pacPlayer.value;
@@ -78,7 +82,7 @@ addPlayer.addEventListener('click',function(){
         let phyPlayerValue = phyPlayer.value;
 
         addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,pacPlayerValue,shoPlayerValue,pasPlayerValue,driPlayerValue,defPlayerValue,phyPlayerValue);
-        // document.getElementById("player-formulaire").reset();
+        document.getElementById("player-formulaire").reset();
     }
     
 })
@@ -236,7 +240,9 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1196,6 +1202,40 @@ function deleteCard(namePlayer) {
     arrPlayers = arrPlayers.filter(player => player.nomPlayerValue !== namePlayer)
     localStorage.setItem("MyStorage", JSON.stringify(arrPlayers))
     displayPlayers();
+
+
+}
+function editCard(namePlayer){
+    addPlayer.style.display = 'none'
+    EditPlayer.style.display = 'block'
+
+    let playerToEdit = arrPlayers.find(player => player.nomPlayerValue === namePlayer);
+    nomPlayer.value = playerToEdit.nomPlayerValue;
+    photoPlayer.value = playerToEdit.photoPlayerValue;
+    logoPlayer.value = playerToEdit.logoPlayerValue;
+    flagPlayer.value = playerToEdit.flagPlayerValue;
+    nationalityPlayer.value = playerToEdit.nationalityPlayerValue;
+    liguePlayer.value = playerToEdit.liguePlayerValue;
+    ratingPlayer.value = playerToEdit.ratingPlayerValue;
+    positionPlayer.value = playerToEdit.positionPlayerValue;
+
+    if (playerToEdit.positionPlayerValue == 'GK'){
+
+        divGoalkeeper.value = playerToEdit.divGoalkeeperValue;
+        hanGoalkeeper.value = playerToEdit.hanGoalkeeperValue;
+        kicGoalkeeper.value = playerToEdit.kicGoalkeeperValue;
+        refGoalkeeper.value = playerToEdit.refGoalkeeperValue;
+        spdGoalkeeper.value = playerToEdit.spdGoalkeeperValue;
+        posGoalkeeper.value = playerToEdit.posGoalkeeperValue;
+    }
+    else{
+        pacPlayer.value = playerToEdit.pacPlayerValue;
+        shoPlayer.value = playerToEdit.shoPlayerValue;
+        pasPlayer.value = playerToEdit.pasPlayerValue;
+        driPlayer.value = playerToEdit.driPlayerValue;
+        defPlayer.value = playerToEdit.defPlayerValue;
+        phyPlayer.value = playerToEdit.phyPlayerValue;
+    }
 
 
 }
