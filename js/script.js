@@ -51,28 +51,51 @@ EditPlayer.addEventListener('click', function(){
     
     let playerToEdit = arrPlayers.find(player => player.nomPlayerValue === playerForm);
     let index = arrPlayers.indexOf(playerToEdit);
-    console.log(ratingPlayer.value);
+    console.log(positionPlayer.value);
 
         console.log(arrPlayers[index]);
-        
-        arrPlayers[index] = {
-            nomPlayerValue: playerForm,
-            photoPlayerValue: photoPlayer.value,
-            logoPlayerValue: logoPlayer.value,
-            flagPlayerValue: flagPlayer.value,
-            nationalityPlayerValue: nationalityPlayer.value,
-            liguePlayerValue: liguePlayer.value,
-            ratingPlayerValue: ratingPlayer.value,
-            positionPlayerValue: positionPlayer.value,
-            pacPlayerValue: pacPlayer.value,
-            shoPlayerValue: shoPlayer.value,
-            pasPlayerValue: pasPlayer.value,
-            driPlayerValue: driPlayer.value,
-            defPlayerValue: defPlayer.value,
-            phyPlayerValue: phyPlayer.value
+        if( positionPlayer.value == 'GK'){
+            arrPlayers[index] = {
+                nomPlayerValue: playerForm,
+                photoPlayerValue: photoPlayer.value,
+                logoPlayerValue: logoPlayer.value,
+                flagPlayerValue: flagPlayer.value,
+                nationalityPlayerValue: nationalityPlayer.value,
+                liguePlayerValue: liguePlayer.value,
+                ratingPlayerValue: ratingPlayer.value,
+                positionPlayerValue: positionPlayer.value,
+                divGoalkeeperValue : divGoalkeeper.value,
+                hanGoalkeeperValue :hanGoalkeeper.value,
+                kicGoalkeeperValue : kicGoalkeeper.value,
+                refGoalkeeperValue : refGoalkeeper.value,
+                spdGoalkeeperValue :spdGoalkeeper.value,
+                posGoalkeeperValue : posGoalkeeper.value
+            }
+            localStorage.setItem("MyStorage", JSON.stringify(arrPlayers));
+            displayPlayers();
+
         }
-        localStorage.setItem("MyStorage", JSON.stringify(arrPlayers));
-        displayPlayers();
+        else{
+            arrPlayers[index] = {
+                nomPlayerValue: playerForm,
+                photoPlayerValue: photoPlayer.value,
+                logoPlayerValue: logoPlayer.value,
+                flagPlayerValue: flagPlayer.value,
+                nationalityPlayerValue: nationalityPlayer.value,
+                liguePlayerValue: liguePlayer.value,
+                ratingPlayerValue: ratingPlayer.value,
+                positionPlayerValue: positionPlayer.value,
+                pacPlayerValue: pacPlayer.value,
+                shoPlayerValue: shoPlayer.value,
+                pasPlayerValue: pasPlayer.value,
+                driPlayerValue: driPlayer.value,
+                defPlayerValue: defPlayer.value,
+                phyPlayerValue: phyPlayer.value
+            }
+            localStorage.setItem("MyStorage", JSON.stringify(arrPlayers));
+            displayPlayers();
+        }
+
         addPlayer.style.display = 'block'
         EditPlayer.style.display = 'none'
         document.getElementById("player-formulaire").reset();
@@ -221,7 +244,8 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard1.innerHTML=`
-                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -324,12 +348,12 @@ function displayPlayers(){
                 newCard.classList.add('card-content')
             if( goalKeeperDiv.innerHTML.trim() !== '' ){
                 
-                // push
                 changements.forEach(changement0 => {
                     if(changement0.innerHTML == ''){
     
                             newCard.innerHTML=`
-                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -380,7 +404,8 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                             <div class="rating-position-gl">
                                     <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                                     <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -438,7 +463,8 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -486,7 +512,8 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -545,7 +572,8 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -593,7 +621,8 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -652,7 +681,8 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -700,7 +730,8 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -759,7 +790,8 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -807,7 +839,8 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -866,7 +899,8 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -915,7 +949,8 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -964,7 +999,8 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1024,6 +1060,8 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                                     <div class="rating-position">
                                     <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
@@ -1073,7 +1111,8 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1122,7 +1161,8 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1171,7 +1211,8 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1247,15 +1288,18 @@ function editCard(namePlayer){
     liguePlayer.value = playerToEdit.liguePlayerValue;
     ratingPlayer.value = playerToEdit.ratingPlayerValue;
     positionPlayer.value = playerToEdit.positionPlayerValue;
+    
 
-    if (playerToEdit.positionPlayerValue == 'GK'){
-
+    if (playerToEdit.positionPlayerValue === 'GK'){
+        goalkeeperPlayerSection.style.display = 'block';
+        normalPlayerSection.style.display = 'none';
         divGoalkeeper.value = playerToEdit.divGoalkeeperValue;
         hanGoalkeeper.value = playerToEdit.hanGoalkeeperValue;
         kicGoalkeeper.value = playerToEdit.kicGoalkeeperValue;
         refGoalkeeper.value = playerToEdit.refGoalkeeperValue;
         spdGoalkeeper.value = playerToEdit.spdGoalkeeperValue;
         posGoalkeeper.value = playerToEdit.posGoalkeeperValue;
+
     }
     else{
         pacPlayer.value = playerToEdit.pacPlayerValue;
