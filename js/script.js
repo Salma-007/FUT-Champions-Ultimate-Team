@@ -49,10 +49,11 @@ let phyPlayer = document.querySelector('.phy-player')
 
 EditPlayer.addEventListener('click', function() {
 
-    let playerForm = document.querySelector('.id-none').textContent;
+    // let playerForm = document.querySelector('.id-none').textContent;
+    let playerForm = EditPlayer.getAttribute('data-player-id');
     console.log(playerForm);
     
-    let playerToEdit = arrPlayers.find(player => player.id === playerForm);
+    let playerToEdit = arrPlayers.find(player => player.id == parseInt(playerForm));
 
     
     if (playerToEdit) {
@@ -1469,6 +1470,7 @@ function editCard(idPlayer){
     
     addPlayer.style.display = 'none'
     EditPlayer.style.display = 'block'
+    EditPlayer.setAttribute('data-player-id', idPlayer);
     // console.log(idPlayer);
     
     let playerToEdit = arrPlayers.find(player => player.id === idPlayer);

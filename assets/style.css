@@ -368,6 +368,8 @@ button:hover {
     color: gray;
 }
 
+
+
 @media screen and (max-width: 1026px) and (min-width: 481px){
     body{
         display: flex;
