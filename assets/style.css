@@ -211,12 +211,9 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
+ /* style de tous les card players */
 
-
-
-.LW {
-    grid-row: 6/15;
-    grid-column: 2/6;
+.style-card-player{
     background-image: url(./images/black-card.webp);
     background-position: center;
     background-size: cover;
@@ -227,143 +224,80 @@ button:hover {
     color: white;
 }
 
+
+ /* emplacement de chaque card en stade (grid) */
+.LW {
+    grid-row: 6/15;
+    grid-column: 2/6;
+
+}
 
 
 .ST{
     grid-row: 5/14;
     grid-column: 8/12 ;
-    /* background-color: blue; */
-    background-image: url(./images/black-card.webp);
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px;
-    color: white;
+
+
 }
 
 .RW{
     grid-column: 14/18;
     grid-row: 6/15;
-    /* background-color: brown; */
-    background-image: url(./images/black-card.webp);
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px;
-    color: white;
+
+
 }
 .CM1{
-    /* background-color: #45a049; */
+
     grid-column: 4/8;
     grid-row: 15/23;
-    background-image: url(./images/black-card.webp);
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px;
-    color: white;
+
     
 }
 .CM2{
-    /* background-color: #45a049; */
+
     grid-column: 8/12;
     grid-row: 15/23;
-    background-image: url(./images/black-card.webp);
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px;
-    color: white;
+
 }
 .CM3{
-    /* background-color: #45a049; */
+
     grid-column: 12/16;
     grid-row: 15/23;
-    background-image: url(./images/black-card.webp);
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px;
-    color: white;
+
 }
 .GL {
-    /* background-color: #2658be; */
+
     grid-column: 8/12;
     grid-row: 30/38;
-    background-image: url(./images/black-card.webp);
-    color: white;
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px; 
+
 }
 
 .LB{
-    /* background-color: #2658be; */
+
     grid-column: 1/5;
     grid-row: 23/31;
-    background-image: url(./images/black-card.webp);
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px; 
-    color: white;
+
 }
 .CB1{
-    /* background-color: #2658be; */
+
     grid-column: 6/10;
     grid-row: 23/31;
-    background-image: url(./images/black-card.webp);
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px; 
-    color: white;
+
 }
 .CB2{
-    /* background-color: #2658be; */
+
     grid-column: 11/15;
     grid-row: 23/31;
-    background-image: url(./images/black-card.webp);
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px; 
-    color: white;
+
 }
 .RB{
-    /* background-color: #2658be; */
+
     grid-column: 15/19;
     grid-row: 23/31;;
-    background-image: url(./images/black-card.webp);
-    background-position: center;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%; 
-    height: 230px; 
-    color: white;
+
 }
 
-  /* style card- goalkeeper */
+/* style card- goalkeeper */
 .rating-position-gl{
     position: absolute;
     top: 50px;
@@ -377,6 +311,7 @@ button:hover {
     width: 105px;
     margin-top: 40px;
 }
+
 .player-informations-GL{
     display: flex;
     flex-direction: column;
@@ -389,7 +324,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
     font-size: 9px;
     
 }
@@ -408,6 +342,7 @@ button:hover {
     display: flex;
     flex-direction: column;
 }
+
 .flags-player{
     display: flex;
     justify-content: center;
@@ -427,6 +362,12 @@ button:hover {
     color: red;
     display: none;
 }
+
+.id-none{
+    font-size: 1px;
+    color: gray;
+}
+
 @media screen and (max-width: 1026px) and (min-width: 481px){
     body{
         display: flex;

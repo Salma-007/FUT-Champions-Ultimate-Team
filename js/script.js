@@ -46,17 +46,20 @@ let driPlayer = document.querySelector('.dri-player')
 let defPlayer = document.querySelector('.def-player')
 let phyPlayer = document.querySelector('.phy-player')
 
-EditPlayer.addEventListener('click', function(){
-    let playerForm = document.querySelector('.nom-player').value; 
-    
-    let playerToEdit = arrPlayers.find(player => player.nomPlayerValue === playerForm);
-    let index = arrPlayers.indexOf(playerToEdit);
-    console.log(positionPlayer.value);
 
-        console.log(arrPlayers[index]);
+EditPlayer.addEventListener('click', function(){
+
+    let playerForm = document.querySelector('.id-none').textContent; 
+    console.log(playerForm);
+    let playerToEdit = arrPlayers.find(player => player.id === playerForm);
+    
+    
+    let index = arrPlayers.indexOf(playerToEdit);
+
         if( positionPlayer.value == 'GK'){
             arrPlayers[index] = {
-                nomPlayerValue: playerForm,
+                id : playerForm,
+                nomPlayerValue: nomPlayer.value,
                 photoPlayerValue: photoPlayer.value,
                 logoPlayerValue: logoPlayer.value,
                 flagPlayerValue: flagPlayer.value,
@@ -77,7 +80,8 @@ EditPlayer.addEventListener('click', function(){
         }
         else{
             arrPlayers[index] = {
-                nomPlayerValue: playerForm,
+                id : playerForm,
+                nomPlayerValue: nomPlayer.value,
                 photoPlayerValue: photoPlayer.value,
                 logoPlayerValue: logoPlayer.value,
                 flagPlayerValue: flagPlayer.value,
@@ -102,6 +106,8 @@ EditPlayer.addEventListener('click', function(){
     
 
 })
+
+
 
 
 addPlayer.addEventListener('click',function(){
@@ -301,6 +307,7 @@ addPlayer.addEventListener('click',function(){
 
 function addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,divGoalkeeperValue,hanGoalkeeperValue,kicGoalkeeperValue,refGoalkeeperValue,spdGoalkeeperValue,posGoalkeeperValue){
     let player = {
+        id: Date.now().toString(),
         nomPlayerValue : nomPlayerValue,
         photoPlayerValue : photoPlayerValue,
         logoPlayerValue : logoPlayerValue,
@@ -325,6 +332,7 @@ function addGoalkeeperFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,
 
 function addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flagPlayerValue,nationalityPlayerValue, liguePlayerValue,ratingPlayerValue,positionPlayerValue,pacPlayerValue,shoPlayerValue,pasPlayerValue,driPlayerValue,defPlayerValue,phyPlayerValue){
     let player = {
+        id: Date.now().toString(),
         nomPlayerValue : nomPlayerValue,
         photoPlayerValue : photoPlayerValue,
         logoPlayerValue: logoPlayerValue,
@@ -404,11 +412,14 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard1.innerHTML=`
-                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
+
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
+                                            
                                         </div>
                                     <img src="${player.photoPlayerValue}" alt="">
                                     <div class="player-informations">
@@ -453,12 +464,13 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                <div class="id-none">${player.id}</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
+                            
                         </div>
                         <img src="${player.photoPlayerValue}" alt="">
                         <div class="player-informations-GL">
@@ -512,8 +524,9 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
     
                             newCard.innerHTML=`
-                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -564,8 +577,9 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                             <div class="rating-position-gl">
                                     <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                                     <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -623,8 +637,9 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -672,8 +687,9 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                <div class="id-none">${player.id}</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -732,8 +748,9 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -781,8 +798,9 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -841,8 +859,9 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -890,8 +909,9 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -950,8 +970,9 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -999,8 +1020,9 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                <div class="id-none">${player.id}</div>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1059,8 +1081,8 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                                     <div class="rating-position">
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
                                             <div class="player-position">${player.positionPlayerValue}</div>
@@ -1109,8 +1131,8 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1159,8 +1181,8 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1220,8 +1242,9 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
 
                             newCard2.innerHTML=`
-                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                            <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                                     <div class="rating-position">
                                     <div class="delete-icon" onclick="deleteCard('${player.nomPlayerValue}')">X</div>
                                             <div class="player-rating">${player.ratingPlayerValue}</div>
@@ -1271,8 +1294,9 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1321,8 +1345,9 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1371,8 +1396,9 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.nomPlayerValue}')"></i>
-                <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.nomPlayerValue}')"></i>
+                <div class="id-none">${player.id}</div>
+                            <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
+                            <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
                     <div class="rating-position-gl">
                             <div class="player-rating-gl">${player.ratingPlayerValue}</div>
                             <div class="player-position-gl">${player.positionPlayerValue}</div>
@@ -1427,20 +1453,25 @@ function displayPlayers(){
 
 }
 
-function deleteCard(namePlayer) {
+function deleteCard(idPlayer) {
 
-    arrPlayers = arrPlayers.filter(player => player.nomPlayerValue !== namePlayer)
+    arrPlayers = arrPlayers.filter(player => player.id !== idPlayer)
     localStorage.setItem("MyStorage", JSON.stringify(arrPlayers))
     displayPlayers();
 
 
 }
-function editCard(namePlayer){
+
+function editCard(idPlayer){
+    
     addPlayer.style.display = 'none'
     EditPlayer.style.display = 'block'
-
-    let playerToEdit = arrPlayers.find(player => player.nomPlayerValue === namePlayer);
-    nomPlayer.value = playerToEdit.nomPlayerValue;
+    // console.log(idPlayer);
+    
+    let playerToEdit = arrPlayers.find(player => player.id === idPlayer);
+    
+    
+    nomPlayer.value = playerToEdit.nomPlayerValue,
     photoPlayer.value = playerToEdit.photoPlayerValue;
     logoPlayer.value = playerToEdit.logoPlayerValue;
     flagPlayer.value = playerToEdit.flagPlayerValue;
