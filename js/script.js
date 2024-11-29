@@ -115,9 +115,9 @@ addPlayer.addEventListener('click',function(){
     let logoPlayerValue = logoPlayer.value
     let flagPlayerValue = flagPlayer.value
 
-    var regexNom = /^[A-Za-zÀ-ÿ\s]+$/;
+    var regexNom = /^[A-Za-zÀ-ÿ\s]{1,15}$/;
     var regexURL = /^(https?:\/\/)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}(\/[^\s]*)?$/; 
-    var regexLigue = /^[A-Za-zÀ-ÿ0-9\s\-]+$/; 
+    var regexLigue = /^[A-Za-zÀ-ÿ0-9\s\-]{2,10}$/; 
     var regexRating = /^[1-9]{1}[0-9]{0,2}$/;
 
     var isValid = true;
