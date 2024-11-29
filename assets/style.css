@@ -379,6 +379,9 @@ button:hover {
         /* margin: 30px auto; */
 
     }
+    /* .style-card-player{
+        height: 200px;
+    } */
     .stade-content{
         width: 100%;
     }
@@ -386,6 +389,9 @@ button:hover {
         margin: 20px auto;
         width: 500px;
         margin-bottom: 400px;
+    }
+    .fa-regular, .fa-solid{
+        font-size: 15px;
     }
     
     .backup-players{
@@ -420,7 +426,7 @@ button:hover {
         justify-content: center;
     }
     .form-player{
-        margin-left: 50px;
+        margin-left: 10px;
         width: 400px;
 
     }
