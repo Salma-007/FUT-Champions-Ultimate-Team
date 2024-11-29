@@ -379,6 +379,9 @@ button:hover {
         /* margin: 30px auto; */
 
     }
+    .stade-content{
+        width: 100%;
+    }
     .form-player{
         margin: 20px auto;
         width: 500px;
@@ -392,7 +395,24 @@ button:hover {
         width: 150px;
         height: 200px;
     }
-    
+    .rating-position-gl{
+        left: 20px;
+    }
+    .rating-position {
+        left: 25px;
+    }
+    .card img {
+        width: 90px;
+    }
+    .player-score {
+        font-size: 7px;
+    }
+    .player-name {
+        font-weight: 13px;
+    }
+    .flags{
+        display: none;
+    }
 }
 @media screen and (min-width: 1026px){
     body{
