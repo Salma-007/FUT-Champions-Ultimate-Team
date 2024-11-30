@@ -377,7 +377,7 @@ button:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(52, 48, 48, 0.5);
     
 }
 
@@ -418,7 +418,12 @@ button:hover {
     background-position: center;
     background-size: cover;
 }
-
+.card-button{
+    width: 20px;
+    background-color: #36b783;
+    width: 70%;
+    font-size: small;
+}
 
 
 

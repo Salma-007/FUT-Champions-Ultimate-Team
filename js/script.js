@@ -1521,19 +1521,34 @@ function openPopup(playerId) {
     let changements = Array.from(changement)
     changements.reverse()
     changements.forEach(change=>{
-        console.log(change);
         
         if(change.innerHTML !== ''){
-            
+            // let nestedDiv = change.querySelector('.fa-regular');
+            // nestedDiv.classList.add('changeIcone')
+            // let changeIcone = document.querySelector('.changeIcone')
+            // changeIcone.remove();
+               console.log(change);
+               
             if (change.classList.contains('LW-pop')) {
-            console.log('hello2');
+                
 
                 let newCard1 = document.createElement('div')
                 newCard1.innerHTML = change.innerHTML
                 newCard1.classList.add('card-popup')
+                // Create a button element
+                let button = document.createElement('button');
+                button.innerHTML = 'Change';  
+                button.classList.add('card-button');  
+                // Add an onclick event to the button
+                button.onclick = function() {
+                console.log('helloo button');
+                
+                    
+                };
+                
+                newCard1.appendChild(button);
                 cardChanges.appendChild(newCard1);
             }
-            
             
         }
 
