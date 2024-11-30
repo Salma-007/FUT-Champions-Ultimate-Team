@@ -523,7 +523,10 @@ function displayPlayers(){
             if( goalKeeperDiv.innerHTML.trim() !== '' ){
                 
                 changements.forEach(changement0 => {
+
                     if(changement0.innerHTML == ''){
+                            changement0.classList.add('GK-pop')
+                        
     
                             newCard.innerHTML=`
                             
@@ -582,6 +585,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}')"></i>
                             <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -1531,24 +1535,50 @@ function openPopup(playerId) {
                
             if (change.classList.contains('LW-pop')) {
                 
-
+                let idchangePlayer = change.querySelector('.id-none').textContent
+                console.log('player to edit '+idchangePlayer);
+                console.log('player to edit '+playerId);
+                
+                
                 let newCard1 = document.createElement('div')
                 newCard1.innerHTML = change.innerHTML
                 newCard1.classList.add('card-popup')
                 // Create a button element
                 let button = document.createElement('button');
-                button.innerHTML = 'Change';  
-                button.classList.add('card-button');  
-                // Add an onclick event to the button
-                button.onclick = function() {
-                console.log('helloo button');
                 
-                    
+                button.classList.add('card-button')  
+                button.innerHTML='change'
+                button.onclick = function() {
+                    swapPlayers(idchangePlayer, playerId);  
                 };
                 
                 newCard1.appendChild(button);
                 cardChanges.appendChild(newCard1);
             }
+            else if (change.classList.contains('GK-pop')) {
+                console.log('i entered');
+                
+                let idchangePlayer = change.querySelector('.id-none').textContent
+                console.log('player to edit '+idchangePlayer);
+                console.log('player to edit '+playerId);
+                
+                
+                let newCard1 = document.createElement('div')
+                newCard1.innerHTML = change.innerHTML
+                newCard1.classList.add('card-popup')
+                // Create a button element
+                let button = document.createElement('button');
+                
+                button.classList.add('card-button')  
+                button.innerHTML='change'
+                button.onclick = function() {
+                    swapPlayers(idchangePlayer, playerId);  
+                };
+                
+                newCard1.appendChild(button);
+                cardChanges.appendChild(newCard1);
+            }
+
             
         }
 
@@ -1557,6 +1587,72 @@ function openPopup(playerId) {
     })
 
 }
+
+// Add an onclick event to the button
+function swapPlayers(idchangePlayer,playerId) {
+
+    let playerToEdit = arrPlayers.find(player => player.id == playerId);
+    let playerToChange = arrPlayers.find(player => player.id == idchangePlayer);
+    let tempPlayer = { ...playerToEdit}
+
+    // change commmun inputs
+    playerToEdit.id = playerToChange.id
+    playerToEdit.nomPlayerValue = playerToChange.nomPlayerValue;
+    playerToEdit.photoPlayerValue = playerToChange.photoPlayerValue;
+    playerToEdit.ratingPlayerValue = playerToChange.ratingPlayerValue;
+    playerToEdit.flagPlayerValue = playerToChange.flagPlayerValue;
+    playerToEdit.logoPlayerValue = playerToChange.logoPlayerValue;
+    playerToEdit.nationalityPlayerValue = playerToChange.nationalityPlayerValue;
+    playerToEdit.liguePlayerValue = playerToChange.liguePlayerValue
+    
+    playerToChange.id = tempPlayer.id;
+    playerToChange.nomPlayerValue = tempPlayer.nomPlayerValue;
+    playerToChange.photoPlayerValue = tempPlayer.photoPlayerValue;
+    playerToChange.ratingPlayerValue = tempPlayer.ratingPlayerValue;
+    playerToChange.flagPlayerValue = tempPlayer.flagPlayerValue;
+    playerToChange.logoPlayerValue = tempPlayer.logoPlayerValue;
+    playerToChange.nationalityPlayerValue = tempPlayer.nationalityPlayerValue;
+    playerToChange.liguePlayerValue = tempPlayer.liguePlayerValue
+
+    if(playerToChange.positionPlayerValue == 'GK'){
+
+        playerToEdit.divGoalkeeperValue = playerToChange.divGoalkeeperValue;
+        playerToEdit.kicGoalkeeperValue = playerToChange.kicGoalkeeperValue;
+        playerToEdit.refGoalkeeperValue = playerToChange.refGoalkeeperValue;
+        playerToEdit.hanGoalkeeperValue = playerToChange.hanGoalkeeperValue;
+        playerToEdit.posGoalkeeperValue = playerToChange.posGoalkeeperValue;
+        playerToEdit.spdGoalkeeperValue = playerToChange.spdGoalkeeperValue;
+
+        playerToChange.divGoalkeeperValue = tempPlayer.divGoalkeeperValue;
+        playerToChange.kicGoalkeeperValue = tempPlayer.kicGoalkeeperValue;
+        playerToChange.refGoalkeeperValue = tempPlayer.refGoalkeeperValue;
+        playerToChange.hanGoalkeeperValue = tempPlayer.hanGoalkeeperValue;
+        playerToChange.posGoalkeeperValue = tempPlayer.posGoalkeeperValue;
+        playerToChange.spdGoalkeeperValue = tempPlayer.spdGoalkeeperValue;
+
+    }
+    else{
+        playerToEdit.shoPlayerValue = playerToChange.shoPlayerValue;
+        playerToEdit.pacPlayerValue = playerToChange.pacPlayerValue;
+        playerToEdit.pasPlayerValue = playerToChange.pasPlayerValue;
+        playerToEdit.driPlayerValue = playerToChange.driPlayerValue;
+        playerToEdit.defPlayerValue = playerToChange.defPlayerValue;
+        playerToEdit.phyPlayerValue = playerToChange.phyPlayerValue;
+
+        playerToChange.shoPlayerValue = tempPlayer.shoPlayerValue;
+        playerToChange.pacPlayerValue = tempPlayer.pacPlayerValue;
+        playerToChange.pasPlayerValue = tempPlayer.pasPlayerValue;
+        playerToChange.driPlayerValue = tempPlayer.driPlayerValue;
+        playerToChange.defPlayerValue = tempPlayer.defPlayerValue;
+        playerToChange.phyPlayerValue = tempPlayer.phyPlayerValue;
+
+    }
+
+    displayPlayers();
+    closePopup();
+                
+                    
+};
 
 // Fonction pour fermer popup
 function closePopup() {
