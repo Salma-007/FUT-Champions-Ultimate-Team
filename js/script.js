@@ -1709,10 +1709,7 @@ function openPopup(playerId, playerPosition) {
         
         if(change.innerHTML !== ''){
             let idchangeRating = change.querySelector('.player-position').textContent
-            // let nestedDiv = change.querySelector('.fa-regular');
-            // nestedDiv.classList.add('changeIcone')
-            // let changeIcone = document.querySelector('.changeIcone')
-            // changeIcone.remove();
+
                console.log(change);
             if(playerPosition == 'LW'){
 
@@ -1724,6 +1721,9 @@ function openPopup(playerId, playerPosition) {
                     let newCard1 = document.createElement('div')
                     newCard1.innerHTML = change.innerHTML
                     newCard1.classList.add('card-popup')
+
+                    let playerPositionDiv = newCard1.querySelector('.rating-position');
+                    playerPositionDiv.style.left = '0';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1735,6 +1735,7 @@ function openPopup(playerId, playerPosition) {
                     
                     newCard1.appendChild(button);
                     cardChanges.appendChild(newCard1);
+                    
                 }
                 
             }
@@ -1747,6 +1748,9 @@ function openPopup(playerId, playerPosition) {
                     let newCard1 = document.createElement('div')
                     newCard1.innerHTML = change.innerHTML
                     newCard1.classList.add('card-popup')
+
+                    let playerPositionDiv = newCard1.querySelector('.rating-position');
+                    playerPositionDiv.style.left = '0';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1769,6 +1773,9 @@ function openPopup(playerId, playerPosition) {
                     let newCard1 = document.createElement('div')
                     newCard1.innerHTML = change.innerHTML
                     newCard1.classList.add('card-popup')
+
+                    let playerPositionDiv = newCard1.querySelector('.rating-position');
+                    playerPositionDiv.style.left = '0';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1791,6 +1798,9 @@ function openPopup(playerId, playerPosition) {
                     let newCard1 = document.createElement('div')
                     newCard1.innerHTML = change.innerHTML
                     newCard1.classList.add('card-popup')
+
+                    let playerPositionDiv = newCard1.querySelector('.rating-position');
+                    playerPositionDiv.style.left = '0';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1813,6 +1823,9 @@ function openPopup(playerId, playerPosition) {
                     let newCard1 = document.createElement('div')
                     newCard1.innerHTML = change.innerHTML
                     newCard1.classList.add('card-popup')
+
+                    let playerPositionDiv = newCard1.querySelector('.rating-position');
+                    playerPositionDiv.style.left = '0';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1835,6 +1848,9 @@ function openPopup(playerId, playerPosition) {
                     let newCard1 = document.createElement('div')
                     newCard1.innerHTML = change.innerHTML
                     newCard1.classList.add('card-popup')
+
+                    let playerPositionDiv = newCard1.querySelector('.rating-position');
+                    playerPositionDiv.style.left = '0';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1857,6 +1873,9 @@ function openPopup(playerId, playerPosition) {
                     let newCard1 = document.createElement('div')
                     newCard1.innerHTML = change.innerHTML
                     newCard1.classList.add('card-popup')
+
+                    let playerPositionDiv = newCard1.querySelector('.rating-position');
+                    playerPositionDiv.style.left = '0';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1879,6 +1898,9 @@ function openPopup(playerId, playerPosition) {
                     let newCard1 = document.createElement('div')
                     newCard1.innerHTML = change.innerHTML
                     newCard1.classList.add('card-popup')
+
+                    let playerPositionDiv = newCard1.querySelector('.rating-position');
+                    playerPositionDiv.style.left = '0';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1961,6 +1983,8 @@ function swapPlayers(idchangePlayer,playerId) {
         playerToChange.phyPlayerValue = tempPlayer.phyPlayerValue;
 
     }
+
+    localStorage.setItem("MyStorage", JSON.stringify(arrPlayers));
 
     displayPlayers();
     closePopup();

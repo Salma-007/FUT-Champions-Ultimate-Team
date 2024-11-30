@@ -396,7 +396,7 @@ button:hover {
     flex-wrap: wrap;
 }
 
-/* Style du bouton de fermeture */
+
 .close {
     color: #aaa;
     font-size: 28px;
@@ -410,7 +410,6 @@ button:hover {
     cursor: pointer;
 }
 .card-popup {
-    border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
     width: 120px;
@@ -418,6 +417,11 @@ button:hover {
     background-position: center;
     background-size: cover;
 }
+
+.card-popup i {
+    display: none;
+}
+
 .card-button{
     width: 20px;
     background-color: #36b783;
@@ -448,9 +452,7 @@ button:hover {
         /* margin: 30px auto; */
 
     }
-    /* .style-card-player{
-        height: 200px;
-    } */
+
     .stade-content{
         width: 100%;
     }
