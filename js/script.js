@@ -1547,6 +1547,7 @@ function openPopup(playerId, playerPosition) {
             // changeIcone.remove();
                console.log(change);
             if(playerPosition == 'LW'){
+                
                 if (change.classList.contains('LW-pop')) {
                 
                     let idchangePlayer = change.querySelector('.id-none').textContent

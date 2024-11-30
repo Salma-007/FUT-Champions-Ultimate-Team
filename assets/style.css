@@ -424,6 +424,10 @@ button:hover {
     width: 70%;
     font-size: small;
 }
+.fa-rotate{
+    position: absolute;
+    top: 2px;
+}
 
 
 
