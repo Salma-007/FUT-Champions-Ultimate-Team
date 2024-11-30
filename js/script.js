@@ -465,7 +465,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}')"></i>
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                 <div class="id-none">${player.id}</div>
                 <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                 <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -527,7 +527,6 @@ function displayPlayers(){
                     if(changement0.innerHTML == ''){
                             changement0.classList.add('GK-pop')
                         
-    
                             newCard.innerHTML=`
                             
                             <div class="id-none">${player.id}</div>
@@ -585,7 +584,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
-                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}')"></i>
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                             <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -644,7 +643,7 @@ function displayPlayers(){
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML == ''){
-
+                        changement0.classList.add('RW-pop')
                             newCard2.innerHTML=`
                             <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
@@ -696,6 +695,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                 <div class="id-none">${player.id}</div>
                 <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -755,6 +755,7 @@ function displayPlayers(){
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML == ''){
+                        changement0.classList.add('ST-pop')
 
                             newCard2.innerHTML=`
                             <div class="id-none">${player.id}</div>
@@ -807,6 +808,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                 <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -866,6 +868,7 @@ function displayPlayers(){
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML == ''){
+                        changement0.classList.add('RB-pop')
 
                             newCard2.innerHTML=`
                             <div class="id-none">${player.id}</div>
@@ -918,6 +921,8 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
+
                 <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -977,6 +982,7 @@ function displayPlayers(){
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML == ''){
+                        changement0.classList.add('LB-pop')
 
                             newCard2.innerHTML=`
                             <div class="id-none " id ="${player.id}">${player.id}</div>
@@ -1029,6 +1035,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                     <div class="id-none" >${player.id}</div>
                         <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                         <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -1088,6 +1095,7 @@ function displayPlayers(){
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML == ''){
+                        changement0.classList.add('CB-pop')
 
                             newCard2.innerHTML=`
                             <div class="id-none" >${player.id}</div>
@@ -1141,6 +1149,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                 <div class="id-none">${player.id}</div>
                 <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -1192,6 +1201,7 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                 <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -1252,6 +1262,7 @@ function displayPlayers(){
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML == ''){
+                        changement0.classList.add('CM-pop')
 
                             newCard2.innerHTML=`
                             <div class="id-none">${player.id}</div>
@@ -1305,6 +1316,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                         <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -1356,6 +1368,7 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                     <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -1407,6 +1420,7 @@ function displayPlayers(){
                     let newCardPlayerStade = document.createElement('div')
                     newCardPlayerStade.classList.add('card-GL')
                     newCardPlayerStade.innerHTML=`
+                    <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}','${player.positionPlayerValue}')"></i>
                     <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -1518,7 +1532,7 @@ function editCard(idPlayer){
 }
 
 // Fonction open popup
-function openPopup(playerId) {
+function openPopup(playerId, playerPosition) {
     document.getElementById("popup-changement").style.display = "block";
     let cardChanges = document.querySelector('.popup-cards')
     let changement = document.querySelectorAll('.changement')
@@ -1532,51 +1546,184 @@ function openPopup(playerId) {
             // let changeIcone = document.querySelector('.changeIcone')
             // changeIcone.remove();
                console.log(change);
-               
-            if (change.classList.contains('LW-pop')) {
+            if(playerPosition == 'LW'){
+                if (change.classList.contains('LW-pop')) {
                 
-                let idchangePlayer = change.querySelector('.id-none').textContent
-                console.log('player to edit '+idchangePlayer);
-                console.log('player to edit '+playerId);
-                
-                
-                let newCard1 = document.createElement('div')
-                newCard1.innerHTML = change.innerHTML
-                newCard1.classList.add('card-popup')
-                // Create a button element
-                let button = document.createElement('button');
-                
-                button.classList.add('card-button')  
-                button.innerHTML='change'
-                button.onclick = function() {
-                    swapPlayers(idchangePlayer, playerId);  
-                };
-                
-                newCard1.appendChild(button);
-                cardChanges.appendChild(newCard1);
+                    let idchangePlayer = change.querySelector('.id-none').textContent
+                    
+                    
+                    let newCard1 = document.createElement('div')
+                    newCard1.innerHTML = change.innerHTML
+                    newCard1.classList.add('card-popup')
+                    // Create a button element
+                    let button = document.createElement('button');
+                    
+                    button.classList.add('card-button')  
+                    button.innerHTML='change'
+                    button.onclick = function() {
+                        swapPlayers(idchangePlayer, playerId);  
+                    };
+                    
+                    newCard1.appendChild(button);
+                    cardChanges.appendChild(newCard1);
+                }
+                else{
+                    cardChanges.innerHTML=`<p> NO PLAYER FOUND </p>`
+                }
             }
-            else if (change.classList.contains('GK-pop')) {
-                console.log('i entered');
+            else if(playerPosition == 'GK'){
+                if (change.classList.contains('GK-pop') ) {
                 
-                let idchangePlayer = change.querySelector('.id-none').textContent
-                console.log('player to edit '+idchangePlayer);
-                console.log('player to edit '+playerId);
+                    let idchangePlayer = change.querySelector('.id-none').textContent
+                    
+                    
+                    let newCard1 = document.createElement('div')
+                    newCard1.innerHTML = change.innerHTML
+                    newCard1.classList.add('card-popup')
+                    // Create a button element
+                    let button = document.createElement('button');
+                    
+                    button.classList.add('card-button')  
+                    button.innerHTML='change'
+                    button.onclick = function() {
+                        swapPlayers(idchangePlayer, playerId);  
+                    };
+                    
+                    newCard1.appendChild(button);
+                    cardChanges.appendChild(newCard1);
+                }
+            }
+            else if(playerPosition == 'RB'){
+                if (change.classList.contains('RB-pop') ) {
                 
+                    let idchangePlayer = change.querySelector('.id-none').textContent
+                    
+                    
+                    let newCard1 = document.createElement('div')
+                    newCard1.innerHTML = change.innerHTML
+                    newCard1.classList.add('card-popup')
+                    // Create a button element
+                    let button = document.createElement('button');
+                    
+                    button.classList.add('card-button')  
+                    button.innerHTML='change'
+                    button.onclick = function() {
+                        swapPlayers(idchangePlayer, playerId);  
+                    };
+                    
+                    newCard1.appendChild(button);
+                    cardChanges.appendChild(newCard1);
+                }
+            }
+            else if(playerPosition == 'LB'){
+                if (change.classList.contains('LB-pop') ) {
                 
-                let newCard1 = document.createElement('div')
-                newCard1.innerHTML = change.innerHTML
-                newCard1.classList.add('card-popup')
-                // Create a button element
-                let button = document.createElement('button');
+                    let idchangePlayer = change.querySelector('.id-none').textContent
+                    
+                    
+                    let newCard1 = document.createElement('div')
+                    newCard1.innerHTML = change.innerHTML
+                    newCard1.classList.add('card-popup')
+                    // Create a button element
+                    let button = document.createElement('button');
+                    
+                    button.classList.add('card-button')  
+                    button.innerHTML='change'
+                    button.onclick = function() {
+                        swapPlayers(idchangePlayer, playerId);  
+                    };
+                    
+                    newCard1.appendChild(button);
+                    cardChanges.appendChild(newCard1);
+                }
+            }
+            else if(playerPosition == 'RW'){
+                if (change.classList.contains('RW-pop') ) {
                 
-                button.classList.add('card-button')  
-                button.innerHTML='change'
-                button.onclick = function() {
-                    swapPlayers(idchangePlayer, playerId);  
-                };
+                    let idchangePlayer = change.querySelector('.id-none').textContent
+                    
+                    
+                    let newCard1 = document.createElement('div')
+                    newCard1.innerHTML = change.innerHTML
+                    newCard1.classList.add('card-popup')
+                    // Create a button element
+                    let button = document.createElement('button');
+                    
+                    button.classList.add('card-button')  
+                    button.innerHTML='change'
+                    button.onclick = function() {
+                        swapPlayers(idchangePlayer, playerId);  
+                    };
+                    
+                    newCard1.appendChild(button);
+                    cardChanges.appendChild(newCard1);
+                }
+            }
+            else if(playerPosition == 'ST'){
+                if (change.classList.contains('ST-pop') && !change.classList.contains('LB-pop')) {
                 
-                newCard1.appendChild(button);
-                cardChanges.appendChild(newCard1);
+                    let idchangePlayer = change.querySelector('.id-none').textContent
+                    
+                    
+                    let newCard1 = document.createElement('div')
+                    newCard1.innerHTML = change.innerHTML
+                    newCard1.classList.add('card-popup')
+                    // Create a button element
+                    let button = document.createElement('button');
+                    
+                    button.classList.add('card-button')  
+                    button.innerHTML='change'
+                    button.onclick = function() {
+                        swapPlayers(idchangePlayer, playerId);  
+                    };
+                    
+                    newCard1.appendChild(button);
+                    cardChanges.appendChild(newCard1);
+                }
+            }
+            else if(playerPosition == 'CB'){
+                if (change.classList.contains('CB-pop') ) {
+                
+                    let idchangePlayer = change.querySelector('.id-none').textContent
+                    
+                    
+                    let newCard1 = document.createElement('div')
+                    newCard1.innerHTML = change.innerHTML
+                    newCard1.classList.add('card-popup')
+                    // Create a button element
+                    let button = document.createElement('button');
+                    
+                    button.classList.add('card-button')  
+                    button.innerHTML='change'
+                    button.onclick = function() {
+                        swapPlayers(idchangePlayer, playerId);  
+                    };
+                    
+                    newCard1.appendChild(button);
+                    cardChanges.appendChild(newCard1);
+                }
+            }
+            else if(playerPosition == 'CM'){
+                if (change.classList.contains('CM-pop') ) {
+                
+                    let idchangePlayer = change.querySelector('.id-none').textContent
+                    
+                    
+                    let newCard1 = document.createElement('div')
+                    newCard1.innerHTML = change.innerHTML
+                    newCard1.classList.add('card-popup')
+                    // Create a button element
+                    let button = document.createElement('button');
+                    
+                    button.classList.add('card-button')  
+                    button.innerHTML='change'
+                    button.onclick = function() {
+                        swapPlayers(idchangePlayer, playerId);  
+                    };
+                    
+                    newCard1.appendChild(button);
+                    cardChanges.appendChild(newCard1);
+                }
             }
 
             
