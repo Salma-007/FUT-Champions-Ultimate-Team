@@ -1724,6 +1724,9 @@ function openPopup(playerId, playerPosition) {
 
                     let playerPositionDiv = newCard1.querySelector('.rating-position');
                     playerPositionDiv.style.left = '0';
+
+                    let playerDivcontent = newCard1.querySelector('.card-content');
+                    playerDivcontent.style.marginTop = '65px';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1751,6 +1754,9 @@ function openPopup(playerId, playerPosition) {
 
                     let playerPositionDiv = newCard1.querySelector('.rating-position');
                     playerPositionDiv.style.left = '0';
+
+                    let playerDivcontent = newCard1.querySelector('.card-content');
+                    playerDivcontent.style.marginTop = '65px';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1776,6 +1782,9 @@ function openPopup(playerId, playerPosition) {
 
                     let playerPositionDiv = newCard1.querySelector('.rating-position');
                     playerPositionDiv.style.left = '0';
+
+                    let playerDivcontent = newCard1.querySelector('.card-content');
+                    playerDivcontent.style.marginTop = '65px';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1801,6 +1810,9 @@ function openPopup(playerId, playerPosition) {
 
                     let playerPositionDiv = newCard1.querySelector('.rating-position');
                     playerPositionDiv.style.left = '0';
+
+                    let playerDivcontent = newCard1.querySelector('.card-content');
+                    playerDivcontent.style.marginTop = '65px';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1826,6 +1838,9 @@ function openPopup(playerId, playerPosition) {
 
                     let playerPositionDiv = newCard1.querySelector('.rating-position');
                     playerPositionDiv.style.left = '0';
+
+                    let playerDivcontent = newCard1.querySelector('.card-content');
+                    playerDivcontent.style.marginTop = '65px';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1851,6 +1866,9 @@ function openPopup(playerId, playerPosition) {
 
                     let playerPositionDiv = newCard1.querySelector('.rating-position');
                     playerPositionDiv.style.left = '0';
+
+                    let playerDivcontent = newCard1.querySelector('.card-content');
+                    playerDivcontent.style.marginTop = '65px';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1876,6 +1894,9 @@ function openPopup(playerId, playerPosition) {
 
                     let playerPositionDiv = newCard1.querySelector('.rating-position');
                     playerPositionDiv.style.left = '0';
+
+                    let playerDivcontent = newCard1.querySelector('.card-content');
+                    playerDivcontent.style.marginTop = '65px';
                     // Create a button element
                     let button = document.createElement('button');
                     
@@ -1901,6 +1922,9 @@ function openPopup(playerId, playerPosition) {
 
                     let playerPositionDiv = newCard1.querySelector('.rating-position');
                     playerPositionDiv.style.left = '0';
+
+                    let playerDivcontent = newCard1.querySelector('.card-content');
+                    playerDivcontent.style.marginTop = '65px';
                     // Create a button element
                     let button = document.createElement('button');
                     
