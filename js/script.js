@@ -409,8 +409,10 @@ function displayPlayers(){
                 changements.forEach(changement0 => {
 
                     if(changement0.innerHTML === ''){
+                    changement0.classList.add('LW-pop')
 
                             newCard1.innerHTML=`
+                            
                             <div class="id-none">${player.id}</div>
                             <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                             <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -463,6 +465,7 @@ function displayPlayers(){
                 let newCardPlayerStade = document.createElement('div')
                 newCardPlayerStade.classList.add('card-GL')
                 newCardPlayerStade.innerHTML=`
+                <i class="fa-solid fa-rotate" onclick="openPopup('${player.id}')"></i>
                 <div class="id-none">${player.id}</div>
                 <i class="fa-regular fa-trash delete-icon" onclick="deleteCard('${player.id}')"></i>
                 <i class="fa-solid fa-pen-to-square delete-icon-modif" onclick="editCard('${player.id}')"></i>
@@ -1510,7 +1513,43 @@ function editCard(idPlayer){
 
 }
 
+// Fonction open popup
+function openPopup(playerId) {
+    document.getElementById("popup-changement").style.display = "block";
+    let cardChanges = document.querySelector('.popup-cards')
+    let changement = document.querySelectorAll('.changement')
+    let changements = Array.from(changement)
+    changements.reverse()
+    changements.forEach(change=>{
+        console.log(change);
+        
+        if(change.innerHTML !== ''){
+            
+            if (change.classList.contains('LW-pop')) {
+            console.log('hello2');
 
+                let newCard1 = document.createElement('div')
+                newCard1.innerHTML = change.innerHTML
+                newCard1.classList.add('card-popup')
+                cardChanges.appendChild(newCard1);
+            }
+            
+            
+        }
+
+
+        
+    })
+
+}
+
+// Fonction pour fermer popup
+function closePopup() {
+    let cardChanges = document.querySelector('.popup-cards')
+    cardChanges.innerHTML=''
+    document.getElementById("popup-changement").style.display = "none";
+
+}
 
 
 
