@@ -48,60 +48,215 @@ let phyPlayer = document.querySelector('.phy-player')
 
 
 EditPlayer.addEventListener('click', function() {
-
-    // let playerForm = document.querySelector('.id-none').textContent;
     let playerForm = EditPlayer.getAttribute('data-player-id');
-    console.log(playerForm);
-    
     let playerToEdit = arrPlayers.find(player => player.id == parseInt(playerForm));
 
-    
     if (playerToEdit) {
-        if (positionPlayer.value === 'GK') {
-            
-            playerToEdit.nomPlayerValue = nomPlayer.value;
-            playerToEdit.photoPlayerValue = photoPlayer.value;
-            playerToEdit.logoPlayerValue = logoPlayer.value;
-            playerToEdit.flagPlayerValue = flagPlayer.value;
-            playerToEdit.nationalityPlayerValue = nationalityPlayer.value;
-            playerToEdit.liguePlayerValue = liguePlayer.value;
-            playerToEdit.ratingPlayerValue = ratingPlayer.value;
-            playerToEdit.positionPlayerValue = positionPlayer.value;
-            playerToEdit.divGoalkeeperValue = divGoalkeeper.value;
-            playerToEdit.hanGoalkeeperValue = hanGoalkeeper.value;
-            playerToEdit.kicGoalkeeperValue = kicGoalkeeper.value;
-            playerToEdit.refGoalkeeperValue = refGoalkeeper.value;
-            playerToEdit.spdGoalkeeperValue = spdGoalkeeper.value;
-            playerToEdit.posGoalkeeperValue = posGoalkeeper.value;
+        let isValid = true;
 
+        // Validation for common fields (like name, photo, logo, etc.)
+        var regexNom = /^[A-Za-zÀ-ÿ\s]{1,15}$/;
+        var regexURL = /^(https?:\/\/)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}(\/[^\s]*)?$/;
+        var regexLigue = /^[A-Za-zÀ-ÿ0-9\s\-]{2,10}$/;
+        var regexRating = /^[1-9]{1}[0-9]{0,2}$/;
+
+        if (!regexNom.test(nomPlayer.value)) {
+            document.getElementById('error-message').style.display = 'block';
+            isValid = false;
         } else {
-            
-            playerToEdit.nomPlayerValue = nomPlayer.value;
-            playerToEdit.photoPlayerValue = photoPlayer.value;
-            playerToEdit.logoPlayerValue = logoPlayer.value;
-            playerToEdit.flagPlayerValue = flagPlayer.value;
-            playerToEdit.nationalityPlayerValue = nationalityPlayer.value;
-            playerToEdit.liguePlayerValue = liguePlayer.value;
-            playerToEdit.ratingPlayerValue = ratingPlayer.value;
-            playerToEdit.positionPlayerValue = positionPlayer.value;
-            playerToEdit.pacPlayerValue = pacPlayer.value;
-            playerToEdit.shoPlayerValue = shoPlayer.value;
-            playerToEdit.pasPlayerValue = pasPlayer.value;
-            playerToEdit.driPlayerValue = driPlayer.value;
-            playerToEdit.defPlayerValue = defPlayer.value;
-            playerToEdit.phyPlayerValue = phyPlayer.value;
+            document.getElementById('error-message').style.display = 'none';
         }
 
-        
-        localStorage.setItem("MyStorage", JSON.stringify(arrPlayers));
+        if (!regexURL.test(photoPlayer.value)) {
+            document.querySelector('.error-photo-player').style.display = 'block';
+            isValid = false;
+        } else {
+            document.querySelector('.error-photo-player').style.display = 'none';
+        }
 
-        
-        displayPlayers();
+        if (!regexURL.test(logoPlayer.value)) {
+            document.querySelector('.error-logo-player').style.display = 'block';
+            isValid = false;
+        } else {
+            document.querySelector('.error-logo-player').style.display = 'none';
+        }
 
+        if (!regexURL.test(flagPlayer.value)) {
+            document.querySelector('.error-flag-player').style.display = 'block';
+            isValid = false;
+        } else {
+            document.querySelector('.error-flag-player').style.display = 'none';
+        }
 
-        addPlayer.style.display = 'block';
-        EditPlayer.style.display = 'none';
-        document.getElementById("player-formulaire").reset();
+        if (!regexNom.test(nationalityPlayer.value)) {
+            document.querySelector('.error-nationality-player').style.display = 'block';
+            isValid = false;
+        } else {
+            document.querySelector('.error-nationality-player').style.display = 'none';
+        }
+
+        if (!regexLigue.test(liguePlayer.value)) {
+            document.querySelector('.error-ligue-player').style.display = 'block';
+            isValid = false;
+        } else {
+            document.querySelector('.error-ligue-player').style.display = 'none';
+        }
+
+        if (!regexRating.test(ratingPlayer.value)) {
+            document.querySelector('.error-rating-player').style.display = 'block';
+            isValid = false;
+        } else {
+            document.querySelector('.error-rating-player').style.display = 'none';
+        }
+
+        // Validate goalkeeper fields (if position is GK)
+        if (positionPlayer.value === 'GK') {
+            let divGoalkeeperValue = divGoalkeeper.value;
+            let hanGoalkeeperValue = hanGoalkeeper.value;
+            let kicGoalkeeperValue = kicGoalkeeper.value;
+            let refGoalkeeperValue = refGoalkeeper.value;
+            let spdGoalkeeperValue = spdGoalkeeper.value;
+            let posGoalkeeperValue = posGoalkeeper.value;
+
+            var regexRating = /^[1-9][0-9]?$|^99$/;
+
+            if (!regexRating.test(divGoalkeeperValue)) {
+                document.querySelector('.error-div-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-div-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(hanGoalkeeperValue)) {
+                document.querySelector('.error-han-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-han-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(kicGoalkeeperValue)) {
+                document.querySelector('.error-kic-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-kic-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(refGoalkeeperValue)) {
+                document.querySelector('.error-ref-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-ref-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(spdGoalkeeperValue)) {
+                document.querySelector('.error-spd-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-spd-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(posGoalkeeperValue)) {
+                document.querySelector('.error-pos-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-pos-player').style.display = 'none';
+            }
+        } else { // If position is not GK, validate field for regular player
+            let pacPlayerValue = pacPlayer.value;
+            let shoPlayerValue = shoPlayer.value;
+            let pasPlayerValue = pasPlayer.value;
+            let driPlayerValue = driPlayer.value;
+            let defPlayerValue = defPlayer.value;
+            let phyPlayerValue = phyPlayer.value;
+
+            if (!regexRating.test(pacPlayerValue)) {
+                document.querySelector('.error-pac-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-pac-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(shoPlayerValue)) {
+                document.querySelector('.error-sho-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-sho-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(pasPlayerValue)) {
+                document.querySelector('.error-pas-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-pas-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(driPlayerValue)) {
+                document.querySelector('.error-dri-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-dri-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(defPlayerValue)) {
+                document.querySelector('.error-def-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-def-player').style.display = 'none';
+            }
+
+            if (!regexRating.test(phyPlayerValue)) {
+                document.querySelector('.error-phy-player').style.display = 'block';
+                isValid = false;
+            } else {
+                document.querySelector('.error-phy-player').style.display = 'none';
+            }
+        }
+
+        // If everything is valid, update the player details
+        if (isValid) {
+            if (positionPlayer.value === 'GK') {
+                playerToEdit.nomPlayerValue = nomPlayer.value;
+                playerToEdit.photoPlayerValue = photoPlayer.value;
+                playerToEdit.logoPlayerValue = logoPlayer.value;
+                playerToEdit.flagPlayerValue = flagPlayer.value;
+                playerToEdit.nationalityPlayerValue = nationalityPlayer.value;
+                playerToEdit.liguePlayerValue = liguePlayer.value;
+                playerToEdit.ratingPlayerValue = ratingPlayer.value;
+                playerToEdit.positionPlayerValue = positionPlayer.value;
+                playerToEdit.divGoalkeeperValue = divGoalkeeper.value;
+                playerToEdit.hanGoalkeeperValue = hanGoalkeeper.value;
+                playerToEdit.kicGoalkeeperValue = kicGoalkeeper.value;
+                playerToEdit.refGoalkeeperValue = refGoalkeeper.value;
+                playerToEdit.spdGoalkeeperValue = spdGoalkeeper.value;
+                playerToEdit.posGoalkeeperValue = posGoalkeeper.value;
+            } else {
+                playerToEdit.nomPlayerValue = nomPlayer.value;
+                playerToEdit.photoPlayerValue = photoPlayer.value;
+                playerToEdit.logoPlayerValue = logoPlayer.value;
+                playerToEdit.flagPlayerValue = flagPlayer.value;
+                playerToEdit.nationalityPlayerValue = nationalityPlayer.value;
+                playerToEdit.liguePlayerValue = liguePlayer.value;
+                playerToEdit.ratingPlayerValue = ratingPlayer.value;
+                playerToEdit.positionPlayerValue = positionPlayer.value;
+                playerToEdit.pacPlayerValue = pacPlayer.value;
+                playerToEdit.shoPlayerValue = shoPlayer.value;
+                playerToEdit.pasPlayerValue = pasPlayer.value;
+                playerToEdit.driPlayerValue = driPlayer.value;
+                playerToEdit.defPlayerValue = defPlayer.value;
+                playerToEdit.phyPlayerValue = phyPlayer.value;
+            }
+
+            // Save to local storage
+            localStorage.setItem("MyStorage", JSON.stringify(arrPlayers));
+
+            // Refresh the player display
+            displayPlayers();
+            alert('player updated !')
+            // Reset form and toggle buttons
+            addPlayer.style.display = 'block';
+            EditPlayer.style.display = 'none';
+            document.getElementById("player-formulaire").reset();
+        }
     } else {
         console.log('Player not found!');
     }
@@ -110,7 +265,18 @@ EditPlayer.addEventListener('click', function() {
 
 
 
+
 addPlayer.addEventListener('click',function(){
+    let changements = []
+    let changement = document.querySelectorAll('.changement')
+    changements = Array.from(changement)
+    changements.reverse()
+
+    if(changements[0].innerHTML !== '' ){
+        alert('changement complet !')
+        document.getElementById("player-formulaire").reset();
+    }
+    else{
 
     let nomPlayerValue = nomPlayer.value;
     let photoPlayerValue = photoPlayer.value;
@@ -299,7 +465,7 @@ addPlayer.addEventListener('click',function(){
 
         }
     }
-    
+}
 
     
     
@@ -526,6 +692,7 @@ function displayPlayers(){
 
                     if(changement0.innerHTML == ''){
                             changement0.classList.add('GK-pop')
+                            
                         
                             newCard.innerHTML=`
                             
@@ -1541,14 +1708,15 @@ function openPopup(playerId, playerPosition) {
     changements.forEach(change=>{
         
         if(change.innerHTML !== ''){
+            let idchangeRating = change.querySelector('.player-position').textContent
             // let nestedDiv = change.querySelector('.fa-regular');
             // nestedDiv.classList.add('changeIcone')
             // let changeIcone = document.querySelector('.changeIcone')
             // changeIcone.remove();
                console.log(change);
             if(playerPosition == 'LW'){
-                
-                if (change.classList.contains('LW-pop')) {
+
+                if (idchangeRating == 'LW') {
                 
                     let idchangePlayer = change.querySelector('.id-none').textContent
                     
@@ -1568,12 +1736,10 @@ function openPopup(playerId, playerPosition) {
                     newCard1.appendChild(button);
                     cardChanges.appendChild(newCard1);
                 }
-                else{
-                    cardChanges.innerHTML=`<p> NO PLAYER FOUND </p>`
-                }
+                
             }
             else if(playerPosition == 'GK'){
-                if (change.classList.contains('GK-pop') ) {
+                if (idchangeRating == 'GK' ) {
                 
                     let idchangePlayer = change.querySelector('.id-none').textContent
                     
@@ -1595,7 +1761,7 @@ function openPopup(playerId, playerPosition) {
                 }
             }
             else if(playerPosition == 'RB'){
-                if (change.classList.contains('RB-pop') ) {
+                if (idchangeRating == 'RB' ) {
                 
                     let idchangePlayer = change.querySelector('.id-none').textContent
                     
@@ -1617,7 +1783,7 @@ function openPopup(playerId, playerPosition) {
                 }
             }
             else if(playerPosition == 'LB'){
-                if (change.classList.contains('LB-pop') ) {
+                if (idchangeRating == 'LB') {
                 
                     let idchangePlayer = change.querySelector('.id-none').textContent
                     
@@ -1639,7 +1805,7 @@ function openPopup(playerId, playerPosition) {
                 }
             }
             else if(playerPosition == 'RW'){
-                if (change.classList.contains('RW-pop') ) {
+                if (idchangeRating == 'RW' ) {
                 
                     let idchangePlayer = change.querySelector('.id-none').textContent
                     
@@ -1661,7 +1827,7 @@ function openPopup(playerId, playerPosition) {
                 }
             }
             else if(playerPosition == 'ST'){
-                if (change.classList.contains('ST-pop') && !change.classList.contains('LB-pop')) {
+                if (idchangeRating == 'ST' ) {
                 
                     let idchangePlayer = change.querySelector('.id-none').textContent
                     
@@ -1683,7 +1849,7 @@ function openPopup(playerId, playerPosition) {
                 }
             }
             else if(playerPosition == 'CB'){
-                if (change.classList.contains('CB-pop') ) {
+                if (idchangeRating == 'CB' ) {
                 
                     let idchangePlayer = change.querySelector('.id-none').textContent
                     
@@ -1705,7 +1871,7 @@ function openPopup(playerId, playerPosition) {
                 }
             }
             else if(playerPosition == 'CM'){
-                if (change.classList.contains('CM-pop') ) {
+                if (idchangeRating == 'CM') {
                 
                     let idchangePlayer = change.querySelector('.id-none').textContent
                     
