@@ -1416,13 +1416,21 @@ function displayPlayers(){
 
 // suppression des joueurs
 function deleteCard(idPlayer) {
+    const isConfirmed = window.confirm("Are you sure you want to delete this player?");
 
-    arrPlayers = arrPlayers.filter(player => player.id !== idPlayer)
-    localStorage.setItem("MyStorage", JSON.stringify(arrPlayers))
-    displayPlayers();
+    // If the user confirms 
+    if (isConfirmed) {
+        arrPlayers = arrPlayers.filter(player => player.id !== idPlayer);
 
-
+        localStorage.setItem("MyStorage", JSON.stringify(arrPlayers));
+        displayPlayers();
+    } 
+    else 
+    {
+        return;
+    }
 }
+
 
 // affichage des informations de joueur a éditer dans le form
 function editCard(idPlayer){
