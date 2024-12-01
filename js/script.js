@@ -6,6 +6,7 @@ let goalkeeperPlayerSection = document.querySelector('.goalkeeper-player');
 let arrPlayers = JSON.parse(localStorage.getItem("MyStorage")) || [];
 displayPlayers();
 
+// display les données de goalkeeper s'il est choisit
 positionSelect.addEventListener('change',function(){
     const selectedPosition = positionSelect.value;
 
@@ -138,9 +139,6 @@ EditPlayer.addEventListener('click', function() {
 });
 
 
-
-
-
 // focntion de validation des champs
 function validateField(value, regex, errorElement) {
     if (!regex.test(value)) {
@@ -152,6 +150,8 @@ function validateField(value, regex, errorElement) {
     }
 }
 
+
+// fonction d'ajout des joueurs
 addPlayer.addEventListener('click', function() {
     let changements = Array.from(document.querySelectorAll('.changement')).reverse();
 
@@ -284,7 +284,7 @@ function addPlayerFunction(nomPlayerValue, photoPlayerValue,logoPlayerValue,flag
         phyPlayerValue : phyPlayerValue
     }
     arrPlayers.push(player)
-    console.log(arrPlayers);
+    // console.log(arrPlayers);
     localStorage.setItem("MyStorage", JSON.stringify(arrPlayers))
     displayPlayers();
 }
@@ -1487,6 +1487,7 @@ function openPopup(playerId, playerPosition) {
     changements.forEach(change=>{
         
         if(change.innerHTML !== ''){
+            // recuperation de l'id de joueur en changement
             let idchangeRating = change.querySelector('.player-position').textContent
 
                console.log(change);
