@@ -1,4 +1,4 @@
-# FUT-Champions-Web-App-Ultimate-Team-Brief
+# FUT-Champions-Ultimate-Team
 
 ## Vue d'ensemble
 
